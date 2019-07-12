@@ -107,6 +107,7 @@
             this.dgvVerDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvVerDetalles.Location = new System.Drawing.Point(99, 44);
             this.dgvVerDetalles.Name = "dgvVerDetalles";
+            this.dgvVerDetalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVerDetalles.Size = new System.Drawing.Size(477, 327);
             this.dgvVerDetalles.TabIndex = 2;
             // 

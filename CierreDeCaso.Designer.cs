@@ -129,6 +129,7 @@
             this.dgvCerrar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCerrar.Location = new System.Drawing.Point(0, 0);
             this.dgvCerrar.Name = "dgvCerrar";
+            this.dgvCerrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCerrar.Size = new System.Drawing.Size(480, 327);
             this.dgvCerrar.TabIndex = 1;
             // 

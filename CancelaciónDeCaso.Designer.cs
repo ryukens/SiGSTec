@@ -81,6 +81,7 @@
             this.dgvCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCancelar.Location = new System.Drawing.Point(99, 44);
             this.dgvCancelar.Name = "dgvCancelar";
+            this.dgvCancelar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCancelar.Size = new System.Drawing.Size(478, 322);
             this.dgvCancelar.TabIndex = 5;
             this.dgvCancelar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);

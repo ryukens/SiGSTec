@@ -144,6 +144,7 @@
             this.dgvEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEliminar.Location = new System.Drawing.Point(98, 44);
             this.dgvEliminar.Name = "dgvEliminar";
+            this.dgvEliminar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEliminar.Size = new System.Drawing.Size(471, 327);
             this.dgvEliminar.TabIndex = 6;
             // 

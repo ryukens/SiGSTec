@@ -101,7 +101,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.4908F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.5092F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 228F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 229F));
             this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel7, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -118,14 +118,14 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(93, 29);
+            this.panel6.Size = new System.Drawing.Size(92, 29);
             this.panel6.TabIndex = 0;
             // 
             // lCantidad
             // 
             this.lCantidad.AutoSize = true;
             this.lCantidad.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lCantidad.Location = new System.Drawing.Point(41, 0);
+            this.lCantidad.Location = new System.Drawing.Point(40, 0);
             this.lCantidad.Name = "lCantidad";
             this.lCantidad.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.lCantidad.Size = new System.Drawing.Size(52, 16);
@@ -136,7 +136,7 @@
             // 
             this.panel7.Controls.Add(this.nudCantidad);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(102, 3);
+            this.panel7.Location = new System.Drawing.Point(101, 3);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(139, 29);
             this.panel7.TabIndex = 1;
@@ -165,6 +165,7 @@
             this.dgvAumentar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAumentar.Location = new System.Drawing.Point(0, 0);
             this.dgvAumentar.Name = "dgvAumentar";
+            this.dgvAumentar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAumentar.Size = new System.Drawing.Size(473, 315);
             this.dgvAumentar.TabIndex = 0;
             // 

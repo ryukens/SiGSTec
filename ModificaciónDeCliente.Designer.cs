@@ -144,6 +144,7 @@
             this.dgvModificar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvModificar.Location = new System.Drawing.Point(95, 47);
             this.dgvModificar.Name = "dgvModificar";
+            this.dgvModificar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvModificar.Size = new System.Drawing.Size(457, 353);
             this.dgvModificar.TabIndex = 0;
             // 

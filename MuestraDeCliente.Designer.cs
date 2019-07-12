@@ -77,6 +77,7 @@
             this.dgvMostrar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMostrar.Location = new System.Drawing.Point(97, 47);
             this.dgvMostrar.Name = "dgvMostrar";
+            this.dgvMostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMostrar.Size = new System.Drawing.Size(464, 346);
             this.dgvMostrar.TabIndex = 2;
             // 

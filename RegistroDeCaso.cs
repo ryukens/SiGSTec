@@ -62,13 +62,13 @@ namespace proyectoPantalla
         private void Button3_Click_1(object sender, EventArgs e)
         {
             SelecciónDeCliente selecciónDeCliente = new SelecciónDeCliente();
-            selecciónDeCliente.Show();
+            selecciónDeCliente.ShowDialog();
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
             SelecciónDeTécnico selecciónDeTécnico = new SelecciónDeTécnico();
-            selecciónDeTécnico.Show();
+            selecciónDeTécnico.ShowDialog();
         }
 
         private void Button1_Click(object sender, EventArgs e)
