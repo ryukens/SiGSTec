@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace proyectoPantalla
 {
     public partial class RegistroDeProducto : UserControl
     {
+        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC2;Integrated Security=True");
         public RegistroDeProducto()
         {
             InitializeComponent();
@@ -59,7 +61,22 @@ namespace proyectoPantalla
 
         private void Button3_Click(object sender, EventArgs e)
         {
+
+            conexion.Open();
+
+            String consulta1 = "insert into producto (codigo,descripcion, cantidad, precio) values (@codigo,@descripcion,@cantidad,CAST(@precio AS FLOAT));";
+            SqlCommand comando1 = new SqlCommand(consulta1, conexion);
+            comando1.Parameters.AddWithValue("@codigo", tbCodigo.Text);
+            comando1.Parameters.AddWithValue("@descripcion", tbDescripcion.Text);
+            comando1.Parameters.AddWithValue("@cantidad", nudCantidad.Value);
+            comando1.Parameters.AddWithValue("@precio", tbPrecio.Text);
+
+            comando1.ExecuteNonQuery();
+
+
+            conexion.Close();
             MessageBox.Show("Producto Registrado Correctamente", "Producto Registrado");
+
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
