@@ -196,6 +196,7 @@
             this.bCancelar.TabIndex = 6;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.BCancelar_Click);
             // 
             // bAceptar
             // 
@@ -222,6 +223,7 @@
             // cbSLA
             // 
             this.cbSLA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbSLA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSLA.FormattingEnabled = true;
             this.cbSLA.Items.AddRange(new object[] {
             "Media Hora",

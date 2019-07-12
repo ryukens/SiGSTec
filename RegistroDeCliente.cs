@@ -9,11 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace proyectoPantalla
 {
     public partial class RegistroDeCliente : UserControl
     {
+        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC2;Integrated Security=True");
         public RegistroDeCliente()
         {
             InitializeComponent();
@@ -37,6 +39,85 @@ namespace proyectoPantalla
             //        }
             //    }
             //}
+            limpiarCampos();
+            conexion.Open();
+
+            String consulta1 = "insert into persona (nombre, correo, identificacion) values (@nombre, @correo,@identificacion); insert into cliente ( idpersona, nombre_contacto, descripcion_contacto,sla,cuenta,tipo_pago, tipo) values ((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @nombre_contacto, @descripcion_contacto, @sla, @cuenta, @tipo_pago, @tipo); ";
+            SqlCommand comando1 = new SqlCommand(consulta1, conexion);
+            comando1.Parameters.AddWithValue("@nombre", tbNombre.Text);
+            comando1.Parameters.AddWithValue("@correo", tbCorreo.Text);
+            comando1.Parameters.AddWithValue("@identificacion", tbCedula.Text);
+            comando1.Parameters.AddWithValue("@nombre_contacto", tbNombreCont.Text);
+            comando1.Parameters.AddWithValue("@descripcion_contacto", tbDescripcion.Text);
+            comando1.Parameters.AddWithValue("@sla", cbSLA.SelectedItem.ToString());
+            comando1.Parameters.AddWithValue("@cuenta", tbCuenta.Text);
+
+
+            if (rbAcordado.Checked)
+            {
+                comando1.Parameters.AddWithValue("@tipo_pago", rbAcordado.Text);
+            }
+            else
+            {
+                comando1.Parameters.AddWithValue("@tipo_pago", rbDefinido.Text);
+            }
+
+            if (rbEmpresa.Checked)
+            {
+                comando1.Parameters.AddWithValue("@tipo", rbEmpresa.Text);
+            }
+            else
+            {
+                comando1.Parameters.AddWithValue("@tipo", rbPersona.Text);
+            }
+
+            comando1.ExecuteNonQuery();
+
+
+
+
+            if (!tbTelefono1.Text.Trim().Equals(""))
+            {
+
+                consulta1 = "insert into telefono (idpersona,telefono,tipo) values ((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @telefono,'CONVENCIONAL1');";
+                SqlCommand comando2 = new SqlCommand(consulta1, conexion);
+
+                comando2.Parameters.AddWithValue("@telefono", tbTelefono1.Text);
+                comando2.ExecuteNonQuery();
+            }
+
+            if (!tbTelefono2.Text.Trim().Equals(""))
+            {
+
+                consulta1 = "insert into telefono (idpersona,telefono,tipo) values ((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @telefono,'CONVENCIONAL2');";
+                SqlCommand comando3 = new SqlCommand(consulta1, conexion);
+
+                comando3.Parameters.AddWithValue("@telefono", tbTelefono2.Text);
+                comando3.ExecuteNonQuery();
+            }
+
+            if (!tbCelular1.Text.Trim().Equals(""))
+            {
+
+                consulta1 = "insert into telefono (idpersona,telefono,tipo) values ((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @telefono,'CELULAR1');";
+                SqlCommand comando4 = new SqlCommand(consulta1, conexion);
+
+                comando4.Parameters.AddWithValue("@telefono", tbCelular1.Text);
+                comando4.ExecuteNonQuery();
+            }
+            if (!tbCelular2.Text.Trim().Equals(""))
+            {
+
+                consulta1 = "insert into telefono (idpersona,telefono,tipo) values ((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @telefono,'CELULAR2');";
+                SqlCommand comando5 = new SqlCommand(consulta1, conexion);
+
+                comando5.Parameters.AddWithValue("@telefono", tbCelular2.Text);
+                comando5.ExecuteNonQuery();
+            }
+
+            conexion.Close();
+            MessageBox.Show("Cliente Registrado Correctamente", "Cliente Registrado");
+
 
 
         }
@@ -160,7 +241,7 @@ namespace proyectoPantalla
             return al;
         }
 
-        
+
         private void TbCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -211,7 +292,7 @@ namespace proyectoPantalla
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-     //           MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //           MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -226,7 +307,7 @@ namespace proyectoPantalla
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-   //             MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //             MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -241,7 +322,7 @@ namespace proyectoPantalla
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
- //               MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //               MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -256,7 +337,7 @@ namespace proyectoPantalla
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-            //    MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //    MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -279,7 +360,7 @@ namespace proyectoPantalla
 
         private void Panel10_Paint(object sender, PaintEventArgs e)
         {
-                    }
+        }
 
         private void Label4_Click(object sender, EventArgs e)
         {
@@ -289,6 +370,25 @@ namespace proyectoPantalla
         private void TbNombreCont_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void limpiarCampos()
+        {
+            tbCedula.ResetText();
+            tbCelular1.ResetText();
+            tbCelular2.ResetText();
+            tbCorreo.ResetText();
+            tbCuenta.ResetText();
+            tbDescripcion.ResetText();
+            tbNombre.ResetText();
+            tbNombreCont.ResetText();
+            tbTelefono1.ResetText();
+            tbTelefono2.ResetText();
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
         }
     }
 }

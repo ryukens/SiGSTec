@@ -111,12 +111,11 @@ namespace proyectoPantalla
                     comando5.Parameters.AddWithValue("@telefono", tbCelular2.Text);
                     comando5.ExecuteNonQuery();
                 }
-
-
                 conexion.Close();
-
                 MessageBox.Show("Técnico Registrado Correctamente", "Técnico Registrado");
+                limpiarCampos();
             }
+
         }
 
         private void Label2_Click(object sender, EventArgs e)
@@ -164,7 +163,7 @@ namespace proyectoPantalla
             return false;
         }
 
-       
+
         private void TextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsLetter(e.KeyChar))
@@ -185,9 +184,9 @@ namespace proyectoPantalla
             }
 
 
-            if (!(char.IsLetter(e.KeyChar)) && !(Char.IsSeparator(e.KeyChar)))
+            if (!(char.IsLetter(e.KeyChar)) && !(Char.IsSeparator(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-               // MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                // MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -212,7 +211,7 @@ namespace proyectoPantalla
                 return;
             }
 
-            
+
         }
 
         private void TbCedula_KeyUp(object sender, KeyEventArgs e)
@@ -233,7 +232,7 @@ namespace proyectoPantalla
 
         private void TbCorreo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
 
         private void TbCorreo_TextChanged(object sender, EventArgs e)
@@ -325,6 +324,24 @@ namespace proyectoPantalla
         private void LTelfCelular_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void limpiarCampos()
+        {
+            tbAlcance.ResetText();
+            tbCedula.ResetText();
+            tbCelular1.ResetText();
+            tbCelular2.ResetText();
+            tbCorreo.ResetText();
+            tbNombre.ResetText();
+            tbSector.ResetText();
+            tbTelefono1.ResetText();
+            tbTelefono2.ResetText();
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
         }
     }
 }

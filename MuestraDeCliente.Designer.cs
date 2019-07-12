@@ -107,7 +107,7 @@
             this.cbBuscar.FormattingEnabled = true;
             this.cbBuscar.Items.AddRange(new object[] {
             "Nombre",
-            "Cédula",
+            "Cédula de Ciudadanía",
             "RUC",
             "Cuenta"});
             this.cbBuscar.Location = new System.Drawing.Point(4, 4);

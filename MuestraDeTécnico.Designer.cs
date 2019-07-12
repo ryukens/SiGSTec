@@ -108,6 +108,7 @@
             this.cbBuscar.FormattingEnabled = true;
             this.cbBuscar.Items.AddRange(new object[] {
             "Nombre",
+
             "Cédula"});
             this.cbBuscar.Location = new System.Drawing.Point(4, 4);
             this.cbBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);

@@ -141,7 +141,7 @@ namespace proyectoPantalla
             }
 
 
-            if (!(char.IsLetter(e.KeyChar)) && !(Char.IsSeparator(e.KeyChar)))
+            if (!(char.IsLetter(e.KeyChar)) && !(Char.IsSeparator(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 // MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
@@ -214,6 +214,14 @@ namespace proyectoPantalla
             {
                 errorProvider1.SetError(tbCedula, "Ingrese cédula correctamente");
             }
+        }
+
+        private void limpiarCampos()
+        {
+            tbCedula.ResetText();
+            tbCorreo.ResetText();
+            tbNombre.ResetText();
+            
         }
     }
 }
