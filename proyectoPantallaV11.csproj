@@ -248,6 +248,11 @@
     <Compile Include="DisminuciónDeProducto.Designer.cs">
       <DependentUpon>DisminuciónDeProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="sigstecDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sigstecDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="VistaDeDetalles.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -375,6 +380,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="sigstecDataSet.xsc">
+      <DependentUpon>sigstecDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="sigstecDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sigstecDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="sigstecDataSet.xss">
+      <DependentUpon>sigstecDataSet.xsd</DependentUpon>
+    </None>
     <None Include="tecnicos - rojo.png" />
   </ItemGroup>
   <ItemGroup>

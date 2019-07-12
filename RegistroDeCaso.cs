@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace proyectoPantalla
 {
     public partial class RegistroDeCaso : UserControl
     {
+        SqlConnection conexion = new SqlConnection("Data Source =.; Initial Catalog = sigstec; Integrated Security = True");
+
         public RegistroDeCaso()
         {
             InitializeComponent();
             timer1.Enabled = true;
-            
         }
 
         private void FlowLayoutPanel10_Paint(object sender, PaintEventArgs e)
@@ -61,7 +63,7 @@ namespace proyectoPantalla
 
         private void Button3_Click_1(object sender, EventArgs e)
         {
-            SelecciónDeCliente selecciónDeCliente = new SelecciónDeCliente();
+            SelecciónDeCliente selecciónDeCliente = new SelecciónDeCliente(lClienteSeleccionado);
             selecciónDeCliente.ShowDialog();
         }
 
@@ -73,7 +75,23 @@ namespace proyectoPantalla
 
         private void Button1_Click(object sender, EventArgs e)
         {
-                      
+              SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC2;Integrated Security=True");
+
+            String consulta1 = "insert into caso(IDUSUARIO, IDTECNICO, IDCLIENTE, NUMERO, FECHA, SLA, INFORME_INICIAL, SECTOR, ESTADO, PARTE_PATH, INFORME_FINAL) values((select IDUSUARIO from USUARIO where username = 'cbVendedor.Text'), @IDTECNICO, @IDCLIENTE, @NUMERO, @FECHA, @SLA, @INFORME_INICIAL, @SECTOR, 'ABIERTO', 'No asignado', 'No Asigando'); ";
+
+
+            SqlCommand comando1 = new SqlCommand(consulta1, conexion);
+            comando1.Parameters.AddWithValue("@IDTECNICO", lTecnicoSeleccionado.Text);
+            comando1.Parameters.AddWithValue("@IDCLIENTE", lClienteSeleccionado.Text);
+            comando1.Parameters.AddWithValue("@NUMERO", lCaso.Text);
+            comando1.Parameters.AddWithValue("@FECHA", lFechaActual.Text);
+            comando1.Parameters.AddWithValue("@SLA", cbSLA.Text);
+            comando1.Parameters.AddWithValue("@INFORME_INICIAL", tbInformeInicial.Text);
+            comando1.Parameters.AddWithValue("@SECTOR", tbSector.Text);
+
+            comando1.ExecuteNonQuery();
+
+
             MessageBox.Show("Caso Registrado Correctamente", "Caso Registrado");
             
         }
@@ -99,6 +117,11 @@ namespace proyectoPantalla
         }
 
         private void Label12_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void LClienteSeleccionado_Click(object sender, EventArgs e)
         {
             
         }

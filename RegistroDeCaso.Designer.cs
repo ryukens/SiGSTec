@@ -421,6 +421,7 @@
             this.lClienteSeleccionado.TabIndex = 1;
             this.lClienteSeleccionado.Text = "CLIENTE SIN SELECCIONAR";
             this.lClienteSeleccionado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lClienteSeleccionado.Click += new System.EventHandler(this.LClienteSeleccionado_Click);
             // 
             // bSeleccionarCliente
             // 
