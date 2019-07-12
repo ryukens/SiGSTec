@@ -40,5 +40,10 @@ namespace proyectoPantalla
                 MessageBox.Show("Técnico Eliminado Correctamente","Técnico Eliminado");
             }
         }
+
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

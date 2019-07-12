@@ -16,7 +16,7 @@ namespace proyectoPantalla
         {
             InitializeComponent();
             timer1.Enabled = true;
-            
+            cbSLA.SelectedIndex = 0;
         }
 
         private void FlowLayoutPanel10_Paint(object sender, PaintEventArgs e)
@@ -73,14 +73,14 @@ namespace proyectoPantalla
 
         private void Button1_Click(object sender, EventArgs e)
         {
-                      
+
             MessageBox.Show("Caso Registrado Correctamente", "Caso Registrado");
-            
+
         }
 
         private void Label11_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -100,7 +100,29 @@ namespace proyectoPantalla
 
         private void Label12_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void limpiarCampos()
+        {
+            tbInformeInicial.ResetText();
+            tbSector.ResetText();
+            cbSLA.SelectedIndex = 0;
+            //cbVendedor.SelectedIndex = 0;
+            lClienteSeleccionado.Text = "CLIENTE SIN SELECCIONAR";
+            lTecnicoSeleccionado.Text = "TÉCNICO SIN SELECCIONAR";
+
+
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
+        }
+
+        private void BAceptar_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
         }
     }
 }

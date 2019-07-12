@@ -215,5 +215,13 @@ namespace proyectoPantalla
                 errorProvider1.SetError(tbCedula, "Ingrese cédula correctamente");
             }
         }
+
+        private void limpiarCampos()
+        {
+            tbCedula.ResetText();
+            tbCorreo.ResetText();
+            tbNombre.ResetText();
+            
+        }
     }
 }

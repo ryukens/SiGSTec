@@ -31,7 +31,7 @@ namespace proyectoPantalla
         private void ButtonEliminar_Click(object sender, EventArgs e)
         {
             RegistroDeInformeFinal cambioDeDatosCaso = new RegistroDeInformeFinal();
-            cambioDeDatosCaso.Show();
+            cambioDeDatosCaso.ShowDialog();
         }
     }
 }

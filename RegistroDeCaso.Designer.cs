@@ -147,6 +147,7 @@
             this.bCancelar.TabIndex = 1;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.BCancelar_Click);
             // 
             // bAceptar
             // 
@@ -157,7 +158,7 @@
             this.bAceptar.TabIndex = 0;
             this.bAceptar.Text = "Aceptar";
             this.bAceptar.UseVisualStyleBackColor = true;
-            this.bAceptar.Click += new System.EventHandler(this.Button1_Click);
+            this.bAceptar.Click += new System.EventHandler(this.BAceptar_Click);
             // 
             // panel13
             // 
@@ -199,7 +200,11 @@
             // cbSLA
             // 
             this.cbSLA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbSLA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSLA.FormattingEnabled = true;
+            this.cbSLA.Items.AddRange(new object[] {
+            "1/2 hora",
+            "1 hora"});
             this.cbSLA.Location = new System.Drawing.Point(0, 0);
             this.cbSLA.Name = "cbSLA";
             this.cbSLA.Size = new System.Drawing.Size(503, 21);
@@ -466,6 +471,7 @@
             // cbVendedor
             // 
             this.cbVendedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbVendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVendedor.FormattingEnabled = true;
             this.cbVendedor.Location = new System.Drawing.Point(104, 156);
             this.cbVendedor.Name = "cbVendedor";
