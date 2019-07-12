@@ -118,6 +118,12 @@ namespace proyectoPantalla
                 e.Handled = true;
 
             }
-        
+        private void limpiarCampos()
+        {
+            tbCodigo.ResetText();
+            tbDescripcion.ResetText();
+            tbPrecio.ResetText();
+            nudCantidad.ResetText();
+        }
     }
 }

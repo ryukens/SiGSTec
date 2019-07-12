@@ -95,7 +95,7 @@
             this.cbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbBuscar.FormattingEnabled = true;
             this.cbBuscar.Items.AddRange(new object[] {
-            "Cédula",
+            "Cédula de Ciudadanía",
             "Nombre"});
             this.cbBuscar.Location = new System.Drawing.Point(3, 3);
             this.cbBuscar.Name = "cbBuscar";

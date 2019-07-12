@@ -25,7 +25,21 @@ namespace proyectoPantalla
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
+            //bool flagVacios = ValidarCamposVacios();
+            //bool flagCedula = VerificaCedula(tbCedula.Text);
+            //bool flagRUC = RucPersonaNatural(tbCedula.Text);
+            //bool flagCorreo = ComprobarFormatoEmail(tbCorreo.Text);
+            //if (flagVacios)
+            //{
+            //    if (flagCorreo)
+            //    {
+            //        if (flagCedula || flagRUC)
+            //        {
+            //            MessageBox.Show("Cliente Registrado Correctamente", "Cliente Registrado");
+            //        }
+            //    }
+            //}
+            limpiarCampos();
             conexion.Open();
 
             String consulta1 = "insert into persona (nombre, correo, identificacion) values (@nombre, @correo,@identificacion); insert into cliente ( idpersona, nombre_contacto, descripcion_contacto,sla,cuenta,tipo_pago, tipo) values ((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @nombre_contacto, @descripcion_contacto, @sla, @cuenta, @tipo_pago, @tipo); ";
@@ -227,7 +241,7 @@ namespace proyectoPantalla
             return al;
         }
 
-        
+
         private void TbCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -278,7 +292,7 @@ namespace proyectoPantalla
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-     //           MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //           MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -293,7 +307,7 @@ namespace proyectoPantalla
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-   //             MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //             MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -308,7 +322,7 @@ namespace proyectoPantalla
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
- //               MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //               MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -323,7 +337,7 @@ namespace proyectoPantalla
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-            //    MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                //    MessageBox.Show("Solo se permiten números", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 e.Handled = true;
                 return;
             }
@@ -346,7 +360,7 @@ namespace proyectoPantalla
 
         private void Panel10_Paint(object sender, PaintEventArgs e)
         {
-                    }
+        }
 
         private void Label4_Click(object sender, EventArgs e)
         {
@@ -356,6 +370,25 @@ namespace proyectoPantalla
         private void TbNombreCont_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void limpiarCampos()
+        {
+            tbCedula.ResetText();
+            tbCelular1.ResetText();
+            tbCelular2.ResetText();
+            tbCorreo.ResetText();
+            tbCuenta.ResetText();
+            tbDescripcion.ResetText();
+            tbNombre.ResetText();
+            tbNombreCont.ResetText();
+            tbTelefono1.ResetText();
+            tbTelefono2.ResetText();
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
         }
     }
 }

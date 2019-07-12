@@ -83,11 +83,12 @@
             this.cbBuscar.FormattingEnabled = true;
             this.cbBuscar.Items.AddRange(new object[] {
             "Nombre",
-            "Cédula"});
+            "Cédula de Ciudadanía"});
             this.cbBuscar.Location = new System.Drawing.Point(3, 3);
             this.cbBuscar.Name = "cbBuscar";
             this.cbBuscar.Size = new System.Drawing.Size(172, 21);
             this.cbBuscar.TabIndex = 0;
+            this.cbBuscar.SelectedIndexChanged += new System.EventHandler(this.CbBuscar_SelectedIndexChanged);
             // 
             // tbBuscar
             // 

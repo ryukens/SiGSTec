@@ -139,6 +139,7 @@
             // cbTipo
             // 
             this.cbTipo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipo.FormattingEnabled = true;
             this.cbTipo.Location = new System.Drawing.Point(89, 237);
             this.cbTipo.Name = "cbTipo";
