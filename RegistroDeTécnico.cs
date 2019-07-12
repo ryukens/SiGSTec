@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace proyectoPantalla
 {
     public partial class RegistroDeTécnico : UserControl
     {
+        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC2;Integrated Security=True");
         public static bool ComprobarFormatoEmail(string sEmailAComprobar)
         {
             String sFormato;
@@ -58,6 +60,61 @@ namespace proyectoPantalla
             bool flag2 = ComprobarFormatoEmail(tbCorreo.Text);
             if (flag && flag2)
             {
+                conexion.Open();
+
+                String consulta1 = "insert into persona (nombre, correo, identificacion) values (@nombre, @correo,@identificacion); insert into tecnico(idpersona, sector, alcance, estado) values((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @sector,@alcance,'DISPONIBLE');";
+                SqlCommand comando1 = new SqlCommand(consulta1, conexion);
+                comando1.Parameters.AddWithValue("@nombre", tbNombre.Text);
+                comando1.Parameters.AddWithValue("@correo", tbCorreo.Text);
+                comando1.Parameters.AddWithValue("@identificacion", tbCedula.Text);
+                comando1.Parameters.AddWithValue("@sector", tbSector.Text);
+                comando1.Parameters.AddWithValue("@alcance", tbAlcance.Text);
+
+                comando1.ExecuteNonQuery();
+
+
+                if (!tbTelefono1.Text.Trim().Equals(""))
+                {
+
+                    consulta1 = "insert into telefono (idpersona,telefono,tipo) values ((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @telefono,'CONVENCIONAL1');";
+                    SqlCommand comando2 = new SqlCommand(consulta1, conexion);
+
+                    comando2.Parameters.AddWithValue("@telefono", tbTelefono1.Text);
+                    comando2.ExecuteNonQuery();
+                }
+
+                if (!tbTelefono2.Text.Trim().Equals(""))
+                {
+
+                    consulta1 = "insert into telefono (idpersona,telefono,tipo) values ((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @telefono,'CONVENCIONAL2');";
+                    SqlCommand comando3 = new SqlCommand(consulta1, conexion);
+
+                    comando3.Parameters.AddWithValue("@telefono", tbTelefono2.Text);
+                    comando3.ExecuteNonQuery();
+                }
+
+                if (!tbCelular1.Text.Trim().Equals(""))
+                {
+
+                    consulta1 = "insert into telefono (idpersona,telefono,tipo) values ((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @telefono,'CELULAR1');";
+                    SqlCommand comando4 = new SqlCommand(consulta1, conexion);
+
+                    comando4.Parameters.AddWithValue("@telefono", tbCelular1.Text);
+                    comando4.ExecuteNonQuery();
+                }
+                if (!tbCelular2.Text.Trim().Equals(""))
+                {
+
+                    consulta1 = "insert into telefono (idpersona,telefono,tipo) values ((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @telefono,'CELULAR2');";
+                    SqlCommand comando5 = new SqlCommand(consulta1, conexion);
+
+                    comando5.Parameters.AddWithValue("@telefono", tbCelular2.Text);
+                    comando5.ExecuteNonQuery();
+                }
+
+
+                conexion.Close();
+
                 MessageBox.Show("Técnico Registrado Correctamente", "Técnico Registrado");
             }
         }
