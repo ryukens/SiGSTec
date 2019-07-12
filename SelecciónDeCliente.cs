@@ -12,11 +12,15 @@ namespace proyectoPantalla
 {
     public partial class SelecciónDeCliente : Form
     {
-        public SelecciónDeCliente()
+        public SelecciónDeCliente(Label lClienteSeleccionado)
         {
             InitializeComponent();
             cbBuscar.SelectedIndex = 0;
+            TopMost = true;
+            this.lClienteSeleccionado = lClienteSeleccionado;
         }
+
+        Label lClienteSeleccionado;
 
         private void FormBusquedaDeCliente_Load(object sender, EventArgs e)
         {
@@ -31,6 +35,7 @@ namespace proyectoPantalla
         private void Button1_Click(object sender, EventArgs e)
         {
             //dataGridView1.SelectedRows.ToString();
+            lClienteSeleccionado.Text = "MAMARREremix";
             this.Dispose();
         }
 
@@ -46,6 +51,7 @@ namespace proyectoPantalla
 
         private void DgvSeleccionar_SelectionChanged(object sender, EventArgs e)
         {
+            
 
         }
     }
