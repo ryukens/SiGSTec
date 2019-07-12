@@ -119,6 +119,7 @@
             this.dgvDisminuir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDisminuir.Location = new System.Drawing.Point(0, 0);
             this.dgvDisminuir.Name = "dgvDisminuir";
+            this.dgvDisminuir.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDisminuir.Size = new System.Drawing.Size(470, 343);
             this.dgvDisminuir.TabIndex = 0;
             // 

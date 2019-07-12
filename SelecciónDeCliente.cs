@@ -31,6 +31,7 @@ namespace proyectoPantalla
         private void Button1_Click(object sender, EventArgs e)
         {
             //dataGridView1.SelectedRows.ToString();
+            this.Dispose();
         }
 
         private void Label1_Click(object sender, EventArgs e)

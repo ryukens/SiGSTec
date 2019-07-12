@@ -103,6 +103,7 @@
             this.dgvSeleccionar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSeleccionar.Location = new System.Drawing.Point(102, 44);
             this.dgvSeleccionar.Name = "dgvSeleccionar";
+            this.dgvSeleccionar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSeleccionar.Size = new System.Drawing.Size(458, 363);
             this.dgvSeleccionar.TabIndex = 2;
             // 
@@ -129,6 +130,7 @@
             this.bSeleccionar.TabIndex = 0;
             this.bSeleccionar.Text = "Seleccionar";
             this.bSeleccionar.UseVisualStyleBackColor = true;
+            this.bSeleccionar.Click += new System.EventHandler(this.BSeleccionar_Click);
             // 
             // lBuscar
             // 
