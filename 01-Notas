@@ -5,4 +5,11 @@ CLIENTE:
 - Elegir persona o empresa para definir el nombre y la cédula o RUC
 - El nombre del contacto solo debe aceptar letras.
 
+CASO:
+- Llenar todos los combo box
+
+GENERAL:
+- Combo box deben ser cédulas de ciudadanía
+- 
+
 
