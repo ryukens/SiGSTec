@@ -12,11 +12,14 @@ namespace proyectoPantalla
 {
     public partial class SelecciónDeTécnico : Form
     {
-        public SelecciónDeTécnico()
+        public SelecciónDeTécnico(Label lTecnicoSeleccionado)
         {
             InitializeComponent();
-            
+            TopMost = true;
+            this.lTecnicoSeleccionado = lTecnicoSeleccionado;
         }
+
+        Label lTecnicoSeleccionado;
 
         private void BusquedaDeTécnico_Load(object sender, EventArgs e)
         {
@@ -25,7 +28,9 @@ namespace proyectoPantalla
 
         private void BSeleccionar_Click(object sender, EventArgs e)
         {
+            lTecnicoSeleccionado.Text = "MAMARRE";
             this.Dispose();
+
         }
     }
 }
