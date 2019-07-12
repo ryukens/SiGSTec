@@ -27,5 +27,10 @@ namespace proyectoPantalla
         {
 
         }
+
+        private void TbBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
