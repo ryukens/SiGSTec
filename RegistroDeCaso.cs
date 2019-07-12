@@ -19,6 +19,7 @@ namespace proyectoPantalla
         {
             InitializeComponent();
             timer1.Enabled = true;
+            cbSLA.SelectedIndex = 0;
         }
 
         private void FlowLayoutPanel10_Paint(object sender, PaintEventArgs e)
@@ -75,6 +76,7 @@ namespace proyectoPantalla
 
         private void Button1_Click(object sender, EventArgs e)
         {
+
               SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC2;Integrated Security=True");
 
             String consulta1 = "insert into caso(IDUSUARIO, IDTECNICO, IDCLIENTE, NUMERO, FECHA, SLA, INFORME_INICIAL, SECTOR, ESTADO, PARTE_PATH, INFORME_FINAL) values((select IDUSUARIO from USUARIO where username = 'cbVendedor.Text'), @IDTECNICO, @IDCLIENTE, @NUMERO, @FECHA, @SLA, @INFORME_INICIAL, @SECTOR, 'ABIERTO', 'No asignado', 'No Asigando'); ";
@@ -92,13 +94,14 @@ namespace proyectoPantalla
             comando1.ExecuteNonQuery();
 
 
+
             MessageBox.Show("Caso Registrado Correctamente", "Caso Registrado");
-            
+
         }
 
         private void Label11_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -118,7 +121,29 @@ namespace proyectoPantalla
 
         private void Label12_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void limpiarCampos()
+        {
+            tbInformeInicial.ResetText();
+            tbSector.ResetText();
+            cbSLA.SelectedIndex = 0;
+            //cbVendedor.SelectedIndex = 0;
+            lClienteSeleccionado.Text = "CLIENTE SIN SELECCIONAR";
+            lTecnicoSeleccionado.Text = "TÉCNICO SIN SELECCIONAR";
+
+
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
+        }
+
+        private void BAceptar_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
         }
 
         private void LClienteSeleccionado_Click(object sender, EventArgs e)

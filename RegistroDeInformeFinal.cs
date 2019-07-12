@@ -15,7 +15,7 @@ namespace proyectoPantalla
         public RegistroDeInformeFinal()
         {
             InitializeComponent();
-            TopMost = true;
+            
         }
 
         OpenFileDialog openFileD = new OpenFileDialog();

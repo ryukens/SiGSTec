@@ -18,5 +18,9 @@ namespace proyectoPantalla
             cbBuscar.SelectedIndex = 0;
         }
 
+        private void AsignaciónDeProductos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
