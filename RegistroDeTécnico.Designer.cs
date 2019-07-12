@@ -97,6 +97,7 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
@@ -129,6 +130,7 @@
             this.panel13.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(135, 63);
+
             this.panel13.TabIndex = 12;
             // 
             // panel12
