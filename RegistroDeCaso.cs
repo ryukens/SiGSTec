@@ -67,7 +67,7 @@ namespace proyectoPantalla
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            SelecciónDeTécnico selecciónDeTécnico = new SelecciónDeTécnico();
+            SelecciónDeTécnico selecciónDeTécnico = new SelecciónDeTécnico(lTecnicoSeleccionado);
             selecciónDeTécnico.ShowDialog();
         }
 
