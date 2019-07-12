@@ -37,5 +37,15 @@ namespace proyectoPantalla
         {
 
         }
+
+        private void DgvSeleccionar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DgvSeleccionar_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
