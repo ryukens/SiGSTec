@@ -39,7 +39,7 @@ namespace proyectoPantalla
             //        }
             //    }
             //}
-            limpiarCampos();
+            
             conexion.Open();
 
             String consulta1 = "insert into persona (nombre, correo, identificacion) values (@nombre, @correo,@identificacion); insert into cliente ( idpersona, nombre_contacto, descripcion_contacto,sla,cuenta,tipo_pago, tipo) values ((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @nombre_contacto, @descripcion_contacto, @sla, @cuenta, @tipo_pago, @tipo); ";
@@ -117,7 +117,7 @@ namespace proyectoPantalla
 
             conexion.Close();
             MessageBox.Show("Cliente Registrado Correctamente", "Cliente Registrado");
-
+            limpiarCampos();
 
 
         }
