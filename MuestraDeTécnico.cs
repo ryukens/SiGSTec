@@ -13,7 +13,7 @@ namespace proyectoPantalla
 {
     public partial class MuestraDeTécnico : UserControl
     {
-        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC2;Integrated Security=True");
+        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
         public MuestraDeTécnico()
         {
             InitializeComponent();
@@ -86,5 +86,10 @@ namespace proyectoPantalla
             }  
                  
             }
+
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
+    }
 }

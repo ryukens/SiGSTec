@@ -30,5 +30,10 @@ namespace proyectoPantalla
         {
 
         }
+
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

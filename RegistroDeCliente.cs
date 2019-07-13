@@ -15,7 +15,7 @@ namespace proyectoPantalla
 {
     public partial class RegistroDeCliente : UserControl
     {
-        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC2;Integrated Security=True");
+        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
         public RegistroDeCliente()
         {
             InitializeComponent();
@@ -389,6 +389,11 @@ namespace proyectoPantalla
         private void BCancelar_Click(object sender, EventArgs e)
         {
             limpiarCampos();
+        }
+
+        private void TbNombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

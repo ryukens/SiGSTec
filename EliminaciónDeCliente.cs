@@ -13,7 +13,7 @@ namespace proyectoPantalla
 {
     public partial class EliminaciónDeCliente : UserControl
     {
-        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC2;Integrated Security=True");
+        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
         public EliminaciónDeCliente()
         {
             InitializeComponent();
@@ -168,6 +168,11 @@ namespace proyectoPantalla
                 dgvEliminar.Columns[3].HeaderText = "Identificación";
                 dgvEliminar.Columns[4].HeaderText = "SLA";
             }
+        }
+
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

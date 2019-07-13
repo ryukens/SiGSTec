@@ -33,5 +33,10 @@ namespace proyectoPantalla
             RegistroDeInformeFinal cambioDeDatosCaso = new RegistroDeInformeFinal();
             cambioDeDatosCaso.ShowDialog();
         }
+
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

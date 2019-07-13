@@ -13,7 +13,7 @@ namespace proyectoPantalla
 {
     public partial class RegistroDeProducto : UserControl
     {
-        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC2;Integrated Security=True");
+        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
         public RegistroDeProducto()
         {
             InitializeComponent();
@@ -124,6 +124,11 @@ namespace proyectoPantalla
             tbDescripcion.ResetText();
             tbPrecio.ResetText();
             nudCantidad.ResetText();
+        }
+
+        private void NudCantidad_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

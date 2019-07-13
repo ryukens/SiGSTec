@@ -13,7 +13,7 @@ namespace proyectoPantalla
 {
     public partial class RegistroDeCaso : UserControl
     {
-        SqlConnection conexion = new SqlConnection("Data Source =.; Initial Catalog = sigstec; Integrated Security = True");
+        SqlConnection conexion = new SqlConnection("Data Source =.; Initial Catalog = SIGSTEC; Integrated Security = True");
 
        
 
@@ -36,6 +36,8 @@ namespace proyectoPantalla
         {
             SelecciónDeCliente selecciónDeCliente = new SelecciónDeCliente(lClienteSeleccionado);
             selecciónDeCliente.ShowDialog();
+
+
         }
 
 
