@@ -80,6 +80,7 @@
             this.dgvMostrar.Location = new System.Drawing.Point(129, 58);
             this.dgvMostrar.Margin = new System.Windows.Forms.Padding(4);
             this.dgvMostrar.Name = "dgvMostrar";
+            this.dgvMostrar.ReadOnly = true;
             this.dgvMostrar.RowHeadersWidth = 51;
             this.dgvMostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMostrar.Size = new System.Drawing.Size(619, 425);
