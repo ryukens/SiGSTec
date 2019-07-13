@@ -151,7 +151,7 @@
             "Empleado De Mesa De Servicios",
             "Empleado De Ventas",
             "Empleado De Compras",
-            "Bodeguer"});
+            "Bodeguero"});
             this.cbTipo.Location = new System.Drawing.Point(119, 292);
             this.cbTipo.Margin = new System.Windows.Forms.Padding(4);
             this.cbTipo.Name = "cbTipo";
