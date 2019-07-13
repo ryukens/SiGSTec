@@ -98,7 +98,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.4908F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.5092F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169F));
             this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel7, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -115,14 +115,14 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(110, 29);
+            this.panel6.Size = new System.Drawing.Size(109, 29);
             this.panel6.TabIndex = 0;
             // 
             // lCantidad
             // 
             this.lCantidad.AutoSize = true;
             this.lCantidad.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lCantidad.Location = new System.Drawing.Point(58, 0);
+            this.lCantidad.Location = new System.Drawing.Point(57, 0);
             this.lCantidad.Name = "lCantidad";
             this.lCantidad.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.lCantidad.Size = new System.Drawing.Size(52, 15);
@@ -133,9 +133,9 @@
             // 
             this.panel7.Controls.Add(this.nudCantidad);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(119, 3);
+            this.panel7.Location = new System.Drawing.Point(118, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(164, 29);
+            this.panel7.Size = new System.Drawing.Size(163, 29);
             this.panel7.TabIndex = 1;
             // 
             // nudCantidad
@@ -143,7 +143,7 @@
             this.nudCantidad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudCantidad.Location = new System.Drawing.Point(0, 0);
             this.nudCantidad.Name = "nudCantidad";
-            this.nudCantidad.Size = new System.Drawing.Size(164, 20);
+            this.nudCantidad.Size = new System.Drawing.Size(163, 20);
             this.nudCantidad.TabIndex = 0;
             // 
             // panel3
@@ -161,6 +161,8 @@
             this.dgvAsignar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAsignar.Location = new System.Drawing.Point(0, 0);
             this.dgvAsignar.Name = "dgvAsignar";
+            this.dgvAsignar.ReadOnly = true;
+            this.dgvAsignar.RowHeadersWidth = 51;
             this.dgvAsignar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAsignar.Size = new System.Drawing.Size(454, 352);
             this.dgvAsignar.TabIndex = 0;
@@ -222,7 +224,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(614, 441);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.MinimumSize = new System.Drawing.Size(630, 480);
+            this.MinimumSize = new System.Drawing.Size(630, 479);
             this.Name = "AsignaciónDeProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Asignación De Productos";
