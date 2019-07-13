@@ -7,16 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace proyectoPantalla
 {
     public partial class EliminaciónDeTécnico : UserControl
     {
+        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC2;Integrated Security=True");
         public EliminaciónDeTécnico()
         {
             InitializeComponent();
+            
             cbBuscar.SelectedIndex = 0;
+            mostrarTecnicos();
         }
+
+        private void mostrarTecnicos()
+        {
+            String consulta = "select t.estado, p.nombre, p.identificacion, t.sector,t.alcance from persona as p join tecnico as t on p.IDPERSONA = t.IDPERSONA;";
+            SqlDataAdapter sda = new SqlDataAdapter(consulta, conexion);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dgvEliminar.DataSource = dt;
+            dgvEliminar.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvEliminar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvEliminar.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvEliminar.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvEliminar.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvEliminar.Columns[0].HeaderText = "Estado";
+            dgvEliminar.Columns[1].HeaderText = "Nombre";
+            dgvEliminar.Columns[2].HeaderText = "Cédula de Ciudadanía";
+            dgvEliminar.Columns[3].HeaderText = "Sector";
+            dgvEliminar.Columns[4].HeaderText = "Alcance";
+        }
+
 
         private void TableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -37,13 +61,72 @@ namespace proyectoPantalla
         {
             if (MessageBox.Show("¿Está seguro que desea eliminar este técnico?", "Eliminar Técnico", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                MessageBox.Show("Técnico Eliminado Correctamente","Técnico Eliminado");
+                conexion.Open();
+
+                String consulta1 = "delete from persona where identificacion = @identificacion;";
+                SqlCommand comando1 = new SqlCommand(consulta1, conexion);
+                comando1.Parameters.AddWithValue("@identificacion", dgvEliminar.CurrentRow.Cells[2].Value.ToString());
+
+                comando1.ExecuteNonQuery();
+
+
+                conexion.Close();
+
+               
+                MessageBox.Show("Técnico Eliminado Correctamente", "Técnico Eliminado");
+                mostrarTecnicos();
             }
         }
 
         private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void TbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (cbBuscar.SelectedIndex == 0)
+            {
+
+                String consulta = "select t.estado, p.nombre, p.identificacion, t.sector,t.alcance from persona as p join tecnico as t on p.IDPERSONA = t.IDPERSONA where nombre like '%" + tbBuscar.Text + "%' order by t.sector;";
+                SqlDataAdapter sda = new SqlDataAdapter(consulta, conexion);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                dgvEliminar.DataSource = dt;
+                dgvEliminar.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dgvEliminar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dgvEliminar.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dgvEliminar.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dgvEliminar.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvEliminar.Columns[0].HeaderText = "Estado";
+                dgvEliminar.Columns[1].HeaderText = "Nombre";
+                dgvEliminar.Columns[2].HeaderText = "Cédula de Ciudadanía";
+                dgvEliminar.Columns[3].HeaderText = "Sector";
+                dgvEliminar.Columns[4].HeaderText = "Alcance";
+            }
+            else
+            {
+
+
+
+
+                String consulta = "select t.estado, p.nombre, p.identificacion,  t.sector,t.alcance from persona as p join tecnico as t on p.IDPERSONA = t.IDPERSONA where p.identificacion like '%" + tbBuscar.Text + "%' order by t.sector;";
+                SqlDataAdapter sda = new SqlDataAdapter(consulta, conexion);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                dgvEliminar.DataSource = dt;
+                dgvEliminar.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dgvEliminar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dgvEliminar.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dgvEliminar.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+                dgvEliminar.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvEliminar.Columns[0].HeaderText = "Estado";
+                dgvEliminar.Columns[1].HeaderText = "Nombre";
+                dgvEliminar.Columns[2].HeaderText = "Cédula de Ciudadanía";
+                dgvEliminar.Columns[3].HeaderText = "Sector";
+                dgvEliminar.Columns[4].HeaderText = "Alcance";
+
+            }
         }
     }
 }

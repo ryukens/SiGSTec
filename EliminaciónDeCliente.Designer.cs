@@ -54,7 +54,7 @@
             this.tableLayoutPanel1.Controls.Add(this.dgvEliminar, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -72,7 +72,7 @@
             this.tableLayoutPanel3.Controls.Add(this.tbBuscar, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(131, 4);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -89,7 +89,7 @@
             "RUC",
             "Cuenta"});
             this.cbBuscar.Location = new System.Drawing.Point(4, 4);
-            this.cbBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.cbBuscar.Name = "cbBuscar";
             this.cbBuscar.Size = new System.Drawing.Size(211, 24);
             this.cbBuscar.TabIndex = 0;
@@ -98,7 +98,7 @@
             // 
             this.tbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbBuscar.Location = new System.Drawing.Point(223, 4);
-            this.tbBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(401, 22);
             this.tbBuscar.TabIndex = 1;
@@ -126,11 +126,11 @@
             this.tableLayoutPanel2.Controls.Add(this.bEliminar, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(131, 465);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(628, 44);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
@@ -138,7 +138,7 @@
             // 
             this.bEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bEliminar.Location = new System.Drawing.Point(4, 4);
-            this.bEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.bEliminar.Name = "bEliminar";
             this.bEliminar.Size = new System.Drawing.Size(306, 36);
             this.bEliminar.TabIndex = 1;
@@ -151,8 +151,9 @@
             this.dgvEliminar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEliminar.Location = new System.Drawing.Point(131, 55);
-            this.dgvEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.dgvEliminar.Name = "dgvEliminar";
+            this.dgvEliminar.ReadOnly = true;
             this.dgvEliminar.RowHeadersWidth = 51;
             this.dgvEliminar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEliminar.Size = new System.Drawing.Size(628, 402);
@@ -164,7 +165,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EliminaciónDeCliente";
             this.Size = new System.Drawing.Size(848, 513);
             this.Load += new System.EventHandler(this.EliminarCliente_Load);

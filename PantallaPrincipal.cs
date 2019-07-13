@@ -154,5 +154,10 @@ namespace proyectoPantalla
         {
 
         }
+
+        private void MuestraDeCaso2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -53,7 +53,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lBuscar, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.55901F));
@@ -71,7 +71,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tbBuscar, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(134, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -86,7 +86,7 @@
             "Código",
             "Descripción"});
             this.cbBuscar.Location = new System.Drawing.Point(4, 4);
-            this.cbBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.cbBuscar.Name = "cbBuscar";
             this.cbBuscar.Size = new System.Drawing.Size(216, 24);
             this.cbBuscar.TabIndex = 0;
@@ -96,7 +96,7 @@
             // 
             this.tbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbBuscar.Location = new System.Drawing.Point(228, 4);
-            this.tbBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(410, 22);
             this.tbBuscar.TabIndex = 1;
@@ -107,7 +107,7 @@
             this.panel3.Controls.Add(this.dgvMostrar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(134, 59);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(642, 464);
             this.panel3.TabIndex = 4;
@@ -117,8 +117,9 @@
             this.dgvMostrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMostrar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMostrar.Location = new System.Drawing.Point(0, 0);
-            this.dgvMostrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvMostrar.Margin = new System.Windows.Forms.Padding(4);
             this.dgvMostrar.Name = "dgvMostrar";
+            this.dgvMostrar.ReadOnly = true;
             this.dgvMostrar.RowHeadersWidth = 51;
             this.dgvMostrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMostrar.Size = new System.Drawing.Size(642, 464);
@@ -146,7 +147,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MuestraDeProducto";
             this.Size = new System.Drawing.Size(867, 577);
             this.tableLayoutPanel1.ResumeLayout(false);
