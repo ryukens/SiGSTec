@@ -12,4 +12,5 @@ GENERAL:
 - Combo box deben ser cédulas de ciudadanía
 - 
 
+En los buscar se debe hacer que si se seleccionó la cédula no se puedan ingresar letras ni más caracteres.
 
