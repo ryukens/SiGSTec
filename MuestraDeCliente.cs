@@ -14,7 +14,7 @@ namespace proyectoPantalla
     public partial class MuestraDeCliente : UserControl
     {
 
-        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC2;Integrated Security=True");
+        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
         public MuestraDeCliente()
         {
             InitializeComponent();
