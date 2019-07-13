@@ -65,6 +65,8 @@
             this.lVendedor = new System.Windows.Forms.Label();
             this.cbVendedor = new System.Windows.Forms.ComboBox();
             this.lIdTecnico = new System.Windows.Forms.Label();
+            this.lIdCliente = new System.Windows.Forms.Label();
+            this.lIdUsuario = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -107,6 +109,8 @@
             this.tableLayoutPanel1.Controls.Add(this.panel8, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.cbVendedor, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.lIdTecnico, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lIdCliente, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lIdUsuario, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -476,10 +480,14 @@
             this.cbVendedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbVendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVendedor.FormattingEnabled = true;
+            this.cbVendedor.Items.AddRange(new object[] {
+            "pepe"});
             this.cbVendedor.Location = new System.Drawing.Point(104, 156);
             this.cbVendedor.Name = "cbVendedor";
             this.cbVendedor.Size = new System.Drawing.Size(503, 21);
             this.cbVendedor.TabIndex = 37;
+            this.cbVendedor.SelectedIndexChanged += new System.EventHandler(this.CbVendedor_SelectedIndexChanged);
+            this.cbVendedor.TextChanged += new System.EventHandler(this.CbVendedor_TextChanged);
             // 
             // lIdTecnico
             // 
@@ -492,6 +500,26 @@
             this.lIdTecnico.Text = "lIdTecnico";
             this.lIdTecnico.Visible = false;
             this.lIdTecnico.Click += new System.EventHandler(this.Label1_Click);
+            // 
+            // lIdCliente
+            // 
+            this.lIdCliente.AutoSize = true;
+            this.lIdCliente.Location = new System.Drawing.Point(613, 102);
+            this.lIdCliente.Name = "lIdCliente";
+            this.lIdCliente.Size = new System.Drawing.Size(38, 26);
+            this.lIdCliente.TabIndex = 39;
+            this.lIdCliente.Text = "id del cliente";
+            this.lIdCliente.Visible = false;
+            // 
+            // lIdUsuario
+            // 
+            this.lIdUsuario.AutoSize = true;
+            this.lIdUsuario.Location = new System.Drawing.Point(613, 51);
+            this.lIdUsuario.Name = "lIdUsuario";
+            this.lIdUsuario.Size = new System.Drawing.Size(41, 26);
+            this.lIdUsuario.TabIndex = 40;
+            this.lIdUsuario.Text = "lId del usuario";
+            this.lIdUsuario.Click += new System.EventHandler(this.Label1_Click_2);
             // 
             // timer1
             // 
@@ -576,5 +604,7 @@
         private System.Windows.Forms.ComboBox cbVendedor;
         private System.Windows.Forms.TextBox tbSector;
         private System.Windows.Forms.Label lIdTecnico;
+        private System.Windows.Forms.Label lIdCliente;
+        private System.Windows.Forms.Label lIdUsuario;
     }
 }
