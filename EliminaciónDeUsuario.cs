@@ -11,15 +11,20 @@ using System.Data.SqlClient;
 
 namespace proyectoPantalla
 {
-    
+
     public partial class EliminaciónDeUsuario : UserControl
     {
         SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
-        public EliminaciónDeUsuario()
+        TabControl tabControl;
+        TabPage tabInicio;
+
+        public EliminaciónDeUsuario(TabControl tabControl, TabPage tabInicio)
         {
             InitializeComponent();
             cbBuscar.SelectedIndex = 0;
             mostrarDatos();
+            this.tabControl = tabControl;
+            this.tabInicio = tabInicio;
         }
 
         private void mostrarDatos()
@@ -78,7 +83,7 @@ namespace proyectoPantalla
             if (cbBuscar.SelectedIndex == 0)
             {
 
-                String consulta = "select u.tipo, p.nombre, p.identificacion, p.correo from persona as p join usuario as u on p.idpersona = u.idpersona where p.nombre like '%"+tbBuscar.Text +"%' order by u.tipo;  ";
+                String consulta = "select u.tipo, p.nombre, p.identificacion, p.correo from persona as p join usuario as u on p.idpersona = u.idpersona where p.nombre like '%" + tbBuscar.Text + "%' order by u.tipo;  ";
                 SqlDataAdapter sda = new SqlDataAdapter(consulta, conexion);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -87,12 +92,12 @@ namespace proyectoPantalla
                 dgvEliminar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dgvEliminar.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dgvEliminar.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                
+
                 dgvEliminar.Columns[0].HeaderText = "Tipo";
                 dgvEliminar.Columns[1].HeaderText = "Nombre";
                 dgvEliminar.Columns[2].HeaderText = "Cédula de Ciudadanía";
                 dgvEliminar.Columns[3].HeaderText = "Correo";
-                
+
             }
             else
             {
@@ -105,7 +110,7 @@ namespace proyectoPantalla
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 dgvEliminar.DataSource = dt;
-                
+
                 dgvEliminar.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
                 dgvEliminar.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dgvEliminar.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -115,6 +120,11 @@ namespace proyectoPantalla
                 dgvEliminar.Columns[2].HeaderText = "Cédula de Ciudadanía";
                 dgvEliminar.Columns[3].HeaderText = "Correo";
             }
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectTab(tabInicio);
         }
     }
 }

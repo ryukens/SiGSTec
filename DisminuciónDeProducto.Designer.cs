@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tbBuscar = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvDisminuir = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -38,6 +37,7 @@
             this.bAsignar = new System.Windows.Forms.Button();
             this.bAceptar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
+            this.tbBuscar = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisminuir)).BeginInit();
@@ -64,14 +64,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(635, 431);
             this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // tbBuscar
-            // 
-            this.tbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBuscar.Location = new System.Drawing.Point(98, 3);
-            this.tbBuscar.Name = "tbBuscar";
-            this.tbBuscar.Size = new System.Drawing.Size(470, 20);
-            this.tbBuscar.TabIndex = 1;
             // 
             // panel3
             // 
@@ -164,6 +156,15 @@
             this.bCancelar.TabIndex = 7;
             this.bCancelar.Text = "Cancelar";
             this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.BCancelar_Click);
+            // 
+            // tbBuscar
+            // 
+            this.tbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbBuscar.Location = new System.Drawing.Point(98, 3);
+            this.tbBuscar.Name = "tbBuscar";
+            this.tbBuscar.Size = new System.Drawing.Size(470, 20);
+            this.tbBuscar.TabIndex = 1;
             // 
             // DisminuciónDeProducto
             // 

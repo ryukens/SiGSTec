@@ -12,10 +12,14 @@ namespace proyectoPantalla
 {
     public partial class MuestraDeCaso : UserControl
     {
-        public MuestraDeCaso()
+        TabControl tabControl;
+        TabPage tabInicio;
+        public MuestraDeCaso(TabControl tabControl, TabPage tabInicio)
         {
             InitializeComponent();
             cbBuscar.SelectedIndex = 0;
+            this.tabControl = tabControl;
+            this.tabInicio = tabInicio;
         }
 
         private void TableLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -31,6 +35,11 @@ namespace proyectoPantalla
         private void TbBuscar_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectTab(tabInicio);
         }
     }
 }

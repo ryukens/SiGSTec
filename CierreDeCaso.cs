@@ -12,10 +12,14 @@ namespace proyectoPantalla
 {
     public partial class CierreDeCaso : UserControl
     {
-        public CierreDeCaso()
+        TabControl tabControl;
+        TabPage tabInicio;
+        public CierreDeCaso(TabControl tabControl, TabPage tabInicio)
         {
             InitializeComponent();
             cbBuscar.SelectedIndex = 0;
+            this.tabControl = tabControl;
+            this.tabInicio = tabInicio;
         }
 
         private void TableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -37,6 +41,11 @@ namespace proyectoPantalla
         private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectTab(tabInicio);
         }
     }
 }
