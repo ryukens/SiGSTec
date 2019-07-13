@@ -161,11 +161,11 @@
             // 
             this.lFechaInicio.AutoSize = true;
             this.lFechaInicio.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lFechaInicio.Location = new System.Drawing.Point(19, 0);
+            this.lFechaInicio.Location = new System.Drawing.Point(17, 0);
             this.lFechaInicio.Name = "lFechaInicio";
-            this.lFechaInicio.Size = new System.Drawing.Size(68, 13);
+            this.lFechaInicio.Size = new System.Drawing.Size(70, 13);
             this.lFechaInicio.TabIndex = 1;
-            this.lFechaInicio.Text = "Fecha Inicio:";
+            this.lFechaInicio.Text = "Fecha Inicial:";
             // 
             // tableLayoutPanel1
             // 

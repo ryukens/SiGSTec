@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbBuscar = new System.Windows.Forms.ComboBox();
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvDisminuir = new System.Windows.Forms.DataGridView();
@@ -41,7 +39,6 @@
             this.bAceptar = new System.Windows.Forms.Button();
             this.bCancelar = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisminuir)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -53,11 +50,11 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lBuscar, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tbBuscar, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -68,40 +65,12 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(635, 431);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel3.Controls.Add(this.cbBuscar, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.tbBuscar, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(98, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(470, 35);
-            this.tableLayoutPanel3.TabIndex = 9;
-            // 
-            // cbBuscar
-            // 
-            this.cbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbBuscar.FormattingEnabled = true;
-            this.cbBuscar.Items.AddRange(new object[] {
-            "Código",
-            "Descripción"});
-            this.cbBuscar.Location = new System.Drawing.Point(3, 3);
-            this.cbBuscar.Name = "cbBuscar";
-            this.cbBuscar.Size = new System.Drawing.Size(158, 21);
-            this.cbBuscar.TabIndex = 0;
-            this.cbBuscar.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
-            // 
             // tbBuscar
             // 
             this.tbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbBuscar.Location = new System.Drawing.Point(167, 3);
+            this.tbBuscar.Location = new System.Drawing.Point(98, 3);
             this.tbBuscar.Name = "tbBuscar";
-            this.tbBuscar.Size = new System.Drawing.Size(300, 20);
+            this.tbBuscar.Size = new System.Drawing.Size(470, 20);
             this.tbBuscar.TabIndex = 1;
             // 
             // panel3
@@ -141,10 +110,9 @@
             this.lBuscar.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
             this.lBuscar.Location = new System.Drawing.Point(3, 0);
             this.lBuscar.Name = "lBuscar";
-            this.lBuscar.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.lBuscar.Size = new System.Drawing.Size(89, 41);
             this.lBuscar.TabIndex = 8;
-            this.lBuscar.Text = "Buscar por:";
+            this.lBuscar.Text = "Número de orden de entrega:";
             this.lBuscar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lBuscar.UseMnemonic = false;
             // 
@@ -208,8 +176,6 @@
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDisminuir)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -225,8 +191,6 @@
         private System.Windows.Forms.DataGridView dgvDisminuir;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label lBuscar;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.ComboBox cbBuscar;
         private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button bAsignar;
