@@ -519,6 +519,7 @@
             this.lIdUsuario.Size = new System.Drawing.Size(41, 26);
             this.lIdUsuario.TabIndex = 40;
             this.lIdUsuario.Text = "lId del usuario";
+            this.lIdUsuario.Visible = false;
             this.lIdUsuario.Click += new System.EventHandler(this.Label1_Click_2);
             // 
             // timer1

@@ -120,7 +120,7 @@ namespace proyectoPantalla
             comando1.ExecuteNonQuery();
 
 
-            //MessageBox.Show("Caso Registrado Correctamente", "Caso Registrado");
+            MessageBox.Show("Caso Registrado Correctamente", "Caso Registrado");
 
             conexion.Close();
 
