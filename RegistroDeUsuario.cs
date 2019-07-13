@@ -85,7 +85,7 @@ namespace proyectoPantalla
         public RegistroDeUsuario()
         {
             InitializeComponent();
-            cbTipo.SelectedItem = 0;
+            cbTipo.SelectedIndex = 0;
         }
 
         private void NuevoUsuario_Load(object sender, EventArgs e)
