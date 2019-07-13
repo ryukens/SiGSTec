@@ -112,6 +112,7 @@
             this.dgvVerDetalles.Location = new System.Drawing.Point(132, 55);
             this.dgvVerDetalles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvVerDetalles.Name = "dgvVerDetalles";
+            this.dgvVerDetalles.ReadOnly = true;
             this.dgvVerDetalles.RowHeadersWidth = 51;
             this.dgvVerDetalles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVerDetalles.Size = new System.Drawing.Size(636, 402);
