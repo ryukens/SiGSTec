@@ -16,6 +16,15 @@ namespace proyectoPantalla
         {
             InitializeComponent();
             cbBuscar.SelectedIndex = 0;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Código");
+            dt.Columns.Add("Descripción");
+            dt.Columns.Add("Cantidad Asignada");
+            dgvDisminuir.DataSource = dt;
+            dgvDisminuir.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dgvDisminuir.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvDisminuir.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            
         }
 
         private void UserControl1_Load(object sender, EventArgs e)
@@ -35,7 +44,7 @@ namespace proyectoPantalla
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            new AsignaciónDeProductos().Show();
+            new AsignaciónDeProductos(dgvDisminuir).Show();
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
