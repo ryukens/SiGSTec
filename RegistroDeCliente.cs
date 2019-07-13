@@ -42,7 +42,12 @@ namespace proyectoPantalla
             
             conexion.Open();
 
-            String consulta1 = "insert into persona (nombre, correo, identificacion) values (@nombre, @correo,@identificacion); insert into cliente ( idpersona, nombre_contacto, descripcion_contacto,sla,cuenta,tipo_pago, tipo) values ((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @nombre_contacto, @descripcion_contacto, @sla, @cuenta, @tipo_pago, @tipo); ";
+            String consulta1 = "insert into persona (nombre, correo, identificacion) " +
+                "values (@nombre, @correo,@identificacion); insert into cliente " +
+                "( idpersona, nombre_contacto, descripcion_contacto,sla,cuenta,tipo_pago, tipo) " +
+                "values ((select idpersona from persona where " +
+                "idpersona = (select max(idpersona) from persona)), " +
+                "@nombre_contacto, @descripcion_contacto, @sla, @cuenta, @tipo_pago, @tipo); ";
             SqlCommand comando1 = new SqlCommand(consulta1, conexion);
             comando1.Parameters.AddWithValue("@nombre", tbNombre.Text);
             comando1.Parameters.AddWithValue("@correo", tbCorreo.Text);

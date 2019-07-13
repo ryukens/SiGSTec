@@ -66,6 +66,10 @@
     <Compile Include="CambioDeContraseña.Designer.cs">
       <DependentUpon>CambioDeContraseña.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases\Caso.cs" />
+    <Compile Include="Clases\Cliente.cs" />
+    <Compile Include="Clases\Producto.cs" />
+    <Compile Include="Clases\Técnico.cs" />
     <Compile Include="Correo.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -120,5 +120,10 @@ namespace proyectoPantalla
         {
 
         }
+
+        private void DgvMostrar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
