@@ -64,6 +64,7 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.lVendedor = new System.Windows.Forms.Label();
             this.cbVendedor = new System.Windows.Forms.ComboBox();
+            this.lIdTecnico = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -105,6 +106,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lCliente, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel8, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.cbVendedor, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lIdTecnico, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -508,11 +510,23 @@
             this.cbVendedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbVendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVendedor.FormattingEnabled = true;
+
             this.cbVendedor.Location = new System.Drawing.Point(139, 193);
             this.cbVendedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbVendedor.Name = "cbVendedor";
             this.cbVendedor.Size = new System.Drawing.Size(670, 24);
             this.cbVendedor.TabIndex = 37;
+            // 
+            // lIdTecnico
+            // 
+            this.lIdTecnico.AutoSize = true;
+            this.lIdTecnico.Location = new System.Drawing.Point(613, 0);
+            this.lIdTecnico.Name = "lIdTecnico";
+            this.lIdTecnico.Size = new System.Drawing.Size(57, 13);
+            this.lIdTecnico.TabIndex = 38;
+            this.lIdTecnico.Text = "lIdTecnico";
+            this.lIdTecnico.Visible = false;
+            this.lIdTecnico.Click += new System.EventHandler(this.Label1_Click);
             // 
             // timer1
             // 
@@ -597,5 +611,6 @@
         private System.Windows.Forms.Label lVendedor;
         private System.Windows.Forms.ComboBox cbVendedor;
         private System.Windows.Forms.TextBox tbSector;
+        private System.Windows.Forms.Label lIdTecnico;
     }
 }
