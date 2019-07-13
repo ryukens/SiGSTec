@@ -18,5 +18,9 @@ Validar que las cantidades a ingresar no sean ni 0 ni menores a 0
 
 La validación de inicio de sesión se debe colocar en su lugar correcto
 
+Verificar las comillas (simples o dobles) en los buscar
+
+Andrés  me debe 3,50$
+
 
 
