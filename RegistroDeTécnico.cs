@@ -14,7 +14,7 @@ namespace proyectoPantalla
 {
     public partial class RegistroDeTécnico : UserControl
     {
-        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC2;Integrated Security=True");
+        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
         public static bool ComprobarFormatoEmail(string sEmailAComprobar)
         {
             String sFormato;

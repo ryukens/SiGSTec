@@ -169,5 +169,10 @@ namespace proyectoPantalla
                 dgvEliminar.Columns[4].HeaderText = "SLA";
             }
         }
+
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
