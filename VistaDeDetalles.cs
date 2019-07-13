@@ -12,10 +12,14 @@ namespace proyectoPantalla
 {
     public partial class VistaDeDetalles : UserControl
     {
-        public VistaDeDetalles()
+        TabControl tabControl;
+        TabPage tabInicio;
+        public VistaDeDetalles(TabControl tabControl, TabPage tabInicio)
         {
             InitializeComponent();
             cbBuscar.SelectedIndex = 0;
+            this.tabControl = tabControl;
+            this.tabInicio = tabInicio;
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -26,6 +30,13 @@ namespace proyectoPantalla
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            tbBuscar.ResetText();
+            tabControl.SelectTab(tabInicio);
 
         }
     }

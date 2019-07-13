@@ -362,6 +362,7 @@
             this.tbNombre.Size = new System.Drawing.Size(461, 20);
             this.tbNombre.TabIndex = 3;
             this.tbNombre.TextChanged += new System.EventHandler(this.TbNombre_TextChanged);
+            this.tbNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TbNombre_KeyPress);
             // 
             // lCuenta
             // 

@@ -13,8 +13,11 @@ namespace proyectoPantalla
 {
     public partial class MuestraDeCaso : UserControl
     {
+
         SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
-        public MuestraDeCaso()
+        TabControl tabControl;
+        TabPage tabInicio;
+        public MuestraDeCaso(TabControl tabControl, TabPage tabInicio)
         {
             InitializeComponent();
             cbBuscar.SelectedIndex = 0;
@@ -38,6 +41,9 @@ namespace proyectoPantalla
             dgvMostrar.Columns[4].HeaderText = "Fecha";
             dgvMostrar.Columns[5].HeaderText = "SLA";
             dgvMostrar.Columns[6].HeaderText = "Sector";
+            this.tabControl = tabControl;
+            this.tabInicio = tabInicio;
+
 
         }
 
@@ -147,6 +153,11 @@ namespace proyectoPantalla
 
 
 
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectTab(tabInicio);
         }
     }
 }
