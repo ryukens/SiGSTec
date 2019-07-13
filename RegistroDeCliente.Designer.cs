@@ -507,7 +507,7 @@
             this.rbDefinido.Size = new System.Drawing.Size(291, 44);
             this.rbDefinido.TabIndex = 0;
             this.rbDefinido.TabStop = true;
-            this.rbDefinido.Text = "Definido por Contrato";
+            this.rbDefinido.Text = "Definido en Contrato";
             this.rbDefinido.UseVisualStyleBackColor = true;
             // 
             // label7
