@@ -17,5 +17,10 @@ namespace proyectoPantalla
             InitializeComponent();
             cbBuscar.SelectedIndex = 0;
         }
+
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
