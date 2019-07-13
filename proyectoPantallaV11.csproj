@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CambioDeContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambioDeContraseña.Designer.cs">
+      <DependentUpon>CambioDeContraseña.cs</DependentUpon>
+    </Compile>
     <Compile Include="Correo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,9 @@
     <Compile Include="VistaDeDetalles.Designer.cs">
       <DependentUpon>VistaDeDetalles.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CambioDeContraseña.resx">
+      <DependentUpon>CambioDeContraseña.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Correo.resx">
       <DependentUpon>Correo.cs</DependentUpon>
     </EmbeddedResource>
