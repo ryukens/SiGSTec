@@ -8,11 +8,50 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Security.Cryptography;
 
 namespace proyectoPantalla
 {
     public partial class RegistroDeUsuario : UserControl
     {
+        SqlConnection conexion = new SqlConnection("Data Source =.; Initial Catalog =SIGSTEC; Integrated Security = True");
+
+        
+        static string RandomString(int length)
+        {
+            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            StringBuilder res = new StringBuilder();
+            using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
+            {
+                byte[] uintBuffer = new byte[sizeof(uint)];
+
+                while (length-- > 0)
+                {
+                    rng.GetBytes(uintBuffer);
+                    uint num = BitConverter.ToUInt32(uintBuffer, 0);
+                    res.Append(valid[(int)(num % (uint)valid.Length)]);
+                }
+            }
+
+            return res.ToString();
+        }
+
+        public static string MD5Hash(string input)
+        {
+            StringBuilder hash = new StringBuilder();
+            MD5CryptoServiceProvider md5provider = new MD5CryptoServiceProvider();
+            byte[] bytes = md5provider.ComputeHash(new UTF8Encoding().GetBytes(input));
+
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                hash.Append(bytes[i].ToString("x2"));
+            }
+            return hash.ToString();
+        }
+
+
+
         public bool VerificaCedula(string ced)
         {
             int isNumeric;
@@ -46,6 +85,7 @@ namespace proyectoPantalla
         public RegistroDeUsuario()
         {
             InitializeComponent();
+            cbTipo.SelectedItem = 0;
         }
 
         private void NuevoUsuario_Load(object sender, EventArgs e)
@@ -74,6 +114,28 @@ namespace proyectoPantalla
             bool flag2 = ComprobarFormatoEmail(tbCorreo.Text);
             if (flag && flag2)
             {
+
+                String salt = RandomString(64);
+
+
+                conexion.Open();
+
+                String consulta1 = "insert into persona(nombre, correo, identificacion) values(@nombre, @correo, @identificacion); insert into usuario(idpersona, tipo, username, [password], salt) values((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @tipo,@username,@pass, @salt); ";
+                SqlCommand comando1 = new SqlCommand(consulta1, conexion);
+                comando1.Parameters.AddWithValue("@nombre", tbNombre.Text);
+                comando1.Parameters.AddWithValue("@correo", tbCorreo.Text);
+                comando1.Parameters.AddWithValue("@identificacion", tbCedula.Text);
+                comando1.Parameters.AddWithValue("@tipo", cbTipo.SelectedItem.ToString());
+
+                comando1.Parameters.AddWithValue("@username", tbCedula.Text);
+                comando1.Parameters.AddWithValue("@pass", MD5Hash(salt + "12345678"));
+                comando1.Parameters.AddWithValue("@salt", salt);
+
+                comando1.ExecuteNonQuery();
+
+
+                conexion.Close();
+                
                 MessageBox.Show("Usuario Registrado Correctamente", "Usuario Registrado");
             }
         }
@@ -88,7 +150,7 @@ namespace proyectoPantalla
 
         }
 
-        
+
 
         public static bool ComprobarFormatoEmail(string sEmailAComprobar)
         {
@@ -113,7 +175,7 @@ namespace proyectoPantalla
 
         private void TextBox2_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void TextBox3_TextChanged(object sender, EventArgs e)
@@ -221,7 +283,12 @@ namespace proyectoPantalla
             tbCedula.ResetText();
             tbCorreo.ResetText();
             tbNombre.ResetText();
-            
+
+        }
+
+        private void CbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
