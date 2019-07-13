@@ -12,10 +12,14 @@ namespace proyectoPantalla
 {
     public partial class DisminuciónDeProducto : UserControl
     {
-        public DisminuciónDeProducto()
+        TabControl tabControl;
+        TabPage tabInicio;
+        public DisminuciónDeProducto(TabControl tabControl, TabPage tabInicio)
         {
             InitializeComponent();
-            cbBuscar.SelectedIndex = 0;
+            this.tabControl = tabControl;
+            this.tabInicio = tabInicio;
+
         }
 
         private void UserControl1_Load(object sender, EventArgs e)
@@ -35,12 +39,17 @@ namespace proyectoPantalla
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            new AsignaciónDeProductos().Show();
+            new AsignaciónDeProductos().ShowDialog();
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectTab(tabInicio);
         }
     }
 }

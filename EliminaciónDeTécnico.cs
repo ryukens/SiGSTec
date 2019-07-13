@@ -14,12 +14,16 @@ namespace proyectoPantalla
     public partial class EliminaciónDeTécnico : UserControl
     {
         SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
-        public EliminaciónDeTécnico()
+        TabControl tabControl;
+        TabPage tabInicio;
+        public EliminaciónDeTécnico(TabControl tabControl, TabPage tabInicio)
         {
             InitializeComponent();
-            
+
             cbBuscar.SelectedIndex = 0;
             mostrarTecnicos();
+            this.tabControl = tabControl;
+            this.tabInicio = tabInicio;
         }
 
         private void mostrarTecnicos()
@@ -72,7 +76,7 @@ namespace proyectoPantalla
 
                 conexion.Close();
 
-               
+
                 MessageBox.Show("Técnico Eliminado Correctamente", "Técnico Eliminado");
                 mostrarTecnicos();
             }
@@ -127,6 +131,11 @@ namespace proyectoPantalla
                 dgvEliminar.Columns[4].HeaderText = "Alcance";
 
             }
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectTab(tabInicio);
         }
     }
 }

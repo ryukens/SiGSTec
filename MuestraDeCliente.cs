@@ -15,7 +15,9 @@ namespace proyectoPantalla
     {
 
         SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
-        public MuestraDeCliente()
+        TabControl tabControl;
+        TabPage tabInicio;
+        public MuestraDeCliente(TabControl tabControl, TabPage tabInicio)
         {
             InitializeComponent();
             cbBuscar.SelectedIndex = 0;
@@ -34,13 +36,15 @@ namespace proyectoPantalla
             dgvMostrar.Columns[2].HeaderText = "Cuenta";
             dgvMostrar.Columns[3].HeaderText = "Identificación";
             dgvMostrar.Columns[4].HeaderText = "SLA";
+            this.tabControl = tabControl;
+            this.tabInicio = tabInicio;
         }
 
         private void TbBuscar_TextChanged(object sender, EventArgs e)
         {
-            if(cbBuscar.SelectedIndex == 0)
+            if (cbBuscar.SelectedIndex == 0)
             {
-                String consulta = "select c.tipo, p.nombre, c.cuenta,  p.identificacion, c.sla  from persona as p join cliente as c on p.idpersona = c.IDPERSONA  where p.nombre like '%"+ tbBuscar.Text+ "%' order by c.tipo;";
+                String consulta = "select c.tipo, p.nombre, c.cuenta,  p.identificacion, c.sla  from persona as p join cliente as c on p.idpersona = c.IDPERSONA  where p.nombre like '%" + tbBuscar.Text + "%' order by c.tipo;";
                 SqlDataAdapter sda = new SqlDataAdapter(consulta, conexion);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -57,7 +61,7 @@ namespace proyectoPantalla
                 dgvMostrar.Columns[4].HeaderText = "SLA";
 
             }
-            else if(cbBuscar.SelectedIndex == 1) // cedula
+            else if (cbBuscar.SelectedIndex == 1) // cedula
             {
                 String consulta = "select c.tipo, p.nombre, c.cuenta,  p.identificacion, c.sla  from persona as p join cliente as c on p.idpersona = c.IDPERSONA  where p.identificacion like '%" + tbBuscar.Text + "%'  and c.tipo = Persona order by c.tipo;";
                 SqlDataAdapter sda = new SqlDataAdapter(consulta, conexion);
@@ -76,7 +80,7 @@ namespace proyectoPantalla
                 dgvMostrar.Columns[4].HeaderText = "SLA";
 
             }
-            else if(cbBuscar.SelectedIndex == 2) // ruc
+            else if (cbBuscar.SelectedIndex == 2) // ruc
             {
                 String consulta = "select c.tipo, p.nombre, c.cuenta,  p.identificacion, c.sla  from persona as p join cliente as c on p.idpersona = c.IDPERSONA  where p.identificacion like '%" + tbBuscar.Text + "%'  and c.tipo = Empresa order by c.tipo;";
                 SqlDataAdapter sda = new SqlDataAdapter(consulta, conexion);
@@ -123,6 +127,10 @@ namespace proyectoPantalla
 
         private void DgvMostrar_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectTab(tabInicio);
 
         }
     }

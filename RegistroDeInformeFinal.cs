@@ -32,6 +32,8 @@ namespace proyectoPantalla
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            tbInformeFinal.ResetText();
+            labelImagen.Text = "IMAGEN SIN SELECCIONAR";
             this.Dispose();
         }
 
@@ -86,5 +88,7 @@ namespace proyectoPantalla
             }
             
         }
+
+        
     }
 }

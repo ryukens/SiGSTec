@@ -36,6 +36,7 @@
             this.lCantidad = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
+            this.bCancelar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvAsignar = new System.Windows.Forms.DataGridView();
             this.lBuscar = new System.Windows.Forms.Label();
@@ -98,9 +99,10 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.4908F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.5092F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 173F));
             this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel7, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.bCancelar, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -115,14 +117,14 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(108, 29);
+            this.panel6.Size = new System.Drawing.Size(107, 29);
             this.panel6.TabIndex = 0;
             // 
             // lCantidad
             // 
             this.lCantidad.AutoSize = true;
             this.lCantidad.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lCantidad.Location = new System.Drawing.Point(56, 0);
+            this.lCantidad.Location = new System.Drawing.Point(55, 0);
             this.lCantidad.Name = "lCantidad";
             this.lCantidad.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.lCantidad.Size = new System.Drawing.Size(52, 15);
@@ -133,9 +135,9 @@
             // 
             this.panel7.Controls.Add(this.nudCantidad);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(117, 3);
+            this.panel7.Location = new System.Drawing.Point(116, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(163, 29);
+            this.panel7.Size = new System.Drawing.Size(161, 29);
             this.panel7.TabIndex = 1;
             // 
             // nudCantidad
@@ -143,8 +145,19 @@
             this.nudCantidad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudCantidad.Location = new System.Drawing.Point(0, 0);
             this.nudCantidad.Name = "nudCantidad";
-            this.nudCantidad.Size = new System.Drawing.Size(163, 20);
+            this.nudCantidad.Size = new System.Drawing.Size(161, 20);
             this.nudCantidad.TabIndex = 0;
+            // 
+            // bCancelar
+            // 
+            this.bCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bCancelar.Location = new System.Drawing.Point(283, 3);
+            this.bCancelar.Name = "bCancelar";
+            this.bCancelar.Size = new System.Drawing.Size(168, 29);
+            this.bCancelar.TabIndex = 2;
+            this.bCancelar.Text = "Cancelar";
+            this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.BCancelar_Click);
             // 
             // panel3
             // 
@@ -200,6 +213,7 @@
             // cbBuscar
             // 
             this.cbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbBuscar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBuscar.FormattingEnabled = true;
             this.cbBuscar.Items.AddRange(new object[] {
             "Código",
@@ -262,5 +276,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.ComboBox cbBuscar;
         private System.Windows.Forms.TextBox tbBuscar;
+        private System.Windows.Forms.Button bCancelar;
     }
 }

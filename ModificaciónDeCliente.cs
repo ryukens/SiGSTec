@@ -15,8 +15,11 @@ namespace proyectoPantalla
 {
     public partial class ModificaciónDeCliente : UserControl
     {
+
         SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
-        public ModificaciónDeCliente()
+        TabControl tabControl;
+        TabPage tabInicio;
+        public ModificaciónDeCliente(TabControl tabControl, TabPage tabInicio)
         {
             InitializeComponent();
             cbBuscar.SelectedIndex = 0;
@@ -35,6 +38,8 @@ namespace proyectoPantalla
             dgvModificar.Columns[2].HeaderText = "Cuenta";
             dgvModificar.Columns[3].HeaderText = "Identificación";
             dgvModificar.Columns[4].HeaderText = "SLA";
+            this.tabControl = tabControl;
+            this.tabInicio = tabInicio;
         }
 
         private void Button2_Click_1(object sender, EventArgs e)
@@ -131,6 +136,11 @@ namespace proyectoPantalla
 
         private void DgvModificar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectTab(tabInicio);
+
         }
     }
 }
