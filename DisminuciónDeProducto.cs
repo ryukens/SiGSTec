@@ -15,7 +15,7 @@ namespace proyectoPantalla
         public DisminuciónDeProducto()
         {
             InitializeComponent();
-            cbBuscar.SelectedIndex = 0;
+            
         }
 
         private void UserControl1_Load(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace proyectoPantalla
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            new AsignaciónDeProductos().Show();
+            new AsignaciónDeProductos().ShowDialog();
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
