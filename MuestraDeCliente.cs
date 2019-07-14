@@ -128,6 +128,8 @@ namespace proyectoPantalla
         private void DgvMostrar_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
         private void BCancelar_Click(object sender, EventArgs e)
         {
             tabControl.SelectTab(tabInicio);

@@ -137,6 +137,8 @@ namespace proyectoPantalla
         private void DgvModificar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+            
         private void BCancelar_Click(object sender, EventArgs e)
         {
             tabControl.SelectTab(tabInicio);
