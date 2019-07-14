@@ -14,7 +14,9 @@ namespace proyectoPantalla
     public partial class MuestraDeTécnico : UserControl
     {
         SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
-        public MuestraDeTécnico()
+        TabControl tabControl;
+        TabPage tabInicio;
+        public MuestraDeTécnico(TabControl tabControl, TabPage tabInicio)
         {
             InitializeComponent();
             cbBuscar.SelectedIndex = 0;
@@ -34,7 +36,8 @@ namespace proyectoPantalla
             dgvMostrar.Columns[2].HeaderText = "Cédula de Ciudadanía";
             dgvMostrar.Columns[3].HeaderText = "Sector";
             dgvMostrar.Columns[4].HeaderText = "Alcance";
-
+            this.tabControl = tabControl;
+            this.tabInicio = tabInicio;
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -44,7 +47,8 @@ namespace proyectoPantalla
 
         private void TbBuscar_TextChanged(object sender, EventArgs e)
         {
-            if (cbBuscar.SelectedIndex == 0) {
+            if (cbBuscar.SelectedIndex == 0)
+            {
 
                 String consulta = "select t.estado, p.nombre, p.identificacion, t.sector,t.alcance from persona as p join tecnico as t on p.IDPERSONA = t.IDPERSONA where nombre like '%" + tbBuscar.Text + "%' order by t.sector;";
                 SqlDataAdapter sda = new SqlDataAdapter(consulta, conexion);
@@ -67,8 +71,8 @@ namespace proyectoPantalla
 
 
 
-                
-                 String consulta = "select t.estado, p.nombre, p.identificacion,  t.sector,t.alcance from persona as p join tecnico as t on p.IDPERSONA = t.IDPERSONA where p.identificacion like '%"+tbBuscar.Text +"%' order by t.sector;" ;
+
+                String consulta = "select t.estado, p.nombre, p.identificacion,  t.sector,t.alcance from persona as p join tecnico as t on p.IDPERSONA = t.IDPERSONA where p.identificacion like '%" + tbBuscar.Text + "%' order by t.sector;";
                 SqlDataAdapter sda = new SqlDataAdapter(consulta, conexion);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -83,8 +87,18 @@ namespace proyectoPantalla
                 dgvMostrar.Columns[2].HeaderText = "Cédula de Ciudadanía";
                 dgvMostrar.Columns[3].HeaderText = "Sector";
                 dgvMostrar.Columns[4].HeaderText = "Alcance";
-            }  
-                 
             }
+
         }
+
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectTab(tabInicio);
+        }
+    }
 }

@@ -72,8 +72,8 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.65861F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.740181F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
@@ -146,6 +146,7 @@
             this.tbUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsuario.Location = new System.Drawing.Point(164, 97);
+            this.tbUsuario.MaxLength = 16;
             this.tbUsuario.Multiline = true;
             this.tbUsuario.Name = "tbUsuario";
             this.tbUsuario.Size = new System.Drawing.Size(317, 41);
@@ -157,12 +158,14 @@
             this.tbContraseña.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbContraseña.Location = new System.Drawing.Point(164, 144);
+            this.tbContraseña.MaxLength = 16;
             this.tbContraseña.Multiline = true;
             this.tbContraseña.Name = "tbContraseña";
             this.tbContraseña.PasswordChar = '*';
             this.tbContraseña.Size = new System.Drawing.Size(317, 41);
             this.tbContraseña.TabIndex = 4;
             this.tbContraseña.Text = "CONTRASEÑA";
+            this.tbContraseña.TextChanged += new System.EventHandler(this.TbContraseña_TextChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -176,7 +179,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(317, 41);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(317, 69);
             this.tableLayoutPanel3.TabIndex = 5;
             // 
             // label3
@@ -186,7 +189,7 @@
             this.label3.Image = global::proyectoPantalla.Properties.Resources.logo_Redinco;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(252, 41);
+            this.label3.Size = new System.Drawing.Size(252, 69);
             this.label3.TabIndex = 0;
             // 
             // InicioDeSesión

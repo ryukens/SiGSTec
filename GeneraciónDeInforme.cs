@@ -12,9 +12,13 @@ namespace proyectoPantalla
 {
     public partial class GeneraciónDeInforme : UserControl
     {
-        public GeneraciónDeInforme()
+        TabControl tabControl;
+        TabPage tabInicio;
+        public GeneraciónDeInforme(TabControl tabControl, TabPage tabInicio)
         {
             InitializeComponent();
+            this.tabControl = tabControl;
+            this.tabInicio = tabInicio;
         }
 
         private void TableLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -26,6 +30,11 @@ namespace proyectoPantalla
         {
             ReporteGenerado reporteGenerado = new ReporteGenerado();
             reporteGenerado.Show();
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectTab(tabInicio);
         }
     }
 }

@@ -12,10 +12,14 @@ namespace proyectoPantalla
 {
     public partial class ModificaciónDeCliente : UserControl
     {
-        public ModificaciónDeCliente()
+        TabControl tabControl;
+        TabPage tabInicio;
+        public ModificaciónDeCliente(TabControl tabControl, TabPage tabInicio)
         {
             InitializeComponent();
             cbBuscar.SelectedIndex = 0;
+            this.tabControl = tabControl;
+            this.tabInicio = tabInicio;
         }
 
         private void Button2_Click_1(object sender, EventArgs e)
@@ -27,6 +31,11 @@ namespace proyectoPantalla
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectTab(tabInicio);
         }
     }
 }

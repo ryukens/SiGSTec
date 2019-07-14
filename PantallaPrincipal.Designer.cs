@@ -16,7 +16,7 @@
             if (disposing && (components != null))
             {
                 components.Dispose();
-                
+
             }
             base.Dispose(disposing);
         }
@@ -69,7 +69,7 @@
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.muestraDeCaso2 = new proyectoPantalla.MuestraDeCaso();
+            this.muestraDeCaso2 = new proyectoPantalla.MuestraDeCaso(tabControl, tabInicio);
             this.tabRegCliente = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -81,15 +81,15 @@
             this.tabEliminarCliente = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
-            this.eliminaciónDeCliente1 = new proyectoPantalla.EliminaciónDeCliente();
+            this.eliminaciónDeCliente1 = new proyectoPantalla.EliminaciónDeCliente(tabControl, tabInicio);
             this.tabBajaTécnico = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
-            this.eliminaciónDeTécnico1 = new proyectoPantalla.EliminaciónDeTécnico();
+            this.eliminaciónDeTécnico1 = new proyectoPantalla.EliminaciónDeTécnico(tabControl, tabInicio);
             this.tabCerrarCaso = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.cierreDeCaso1 = new proyectoPantalla.CierreDeCaso();
+            this.cierreDeCaso1 = new proyectoPantalla.CierreDeCaso(tabControl, tabInicio);
             this.tabRegProd = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
@@ -101,11 +101,11 @@
             this.tabDismProd = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
-            this.disminuciónDeProducto1 = new proyectoPantalla.DisminuciónDeProducto();
+            this.disminuciónDeProducto1 = new proyectoPantalla.DisminuciónDeProducto(tabControl, tabInicio);
             this.tabAumProd = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
-            this.aumentoDeProducto1 = new proyectoPantalla.AumentoDeProducto();
+            this.aumentoDeProducto1 = new proyectoPantalla.AumentoDeProducto(tabControl, tabInicio);
             this.tabRegUsuario = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
@@ -113,42 +113,42 @@
             this.tabEliminarUsuario = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
-            this.eliminaciónDeUsuario1 = new proyectoPantalla.EliminaciónDeUsuario();
+            this.eliminaciónDeUsuario1 = new proyectoPantalla.EliminaciónDeUsuario(tabControl, tabInicio);
             this.tabModCliente = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.label13 = new System.Windows.Forms.Label();
-            this.modificaciónDeCliente1 = new proyectoPantalla.ModificaciónDeCliente();
+            this.modificaciónDeCliente1 = new proyectoPantalla.ModificaciónDeCliente(tabControl, tabInicio);
             this.tabModTécnico = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
-            this.modificaciónDeTécnico1 = new proyectoPantalla.ModificaciónDeTécnico();
+            this.modificaciónDeTécnico1 = new proyectoPantalla.ModificaciónDeTécnico(tabControl, tabInicio);
             this.tabCancelarCaso = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.label16 = new System.Windows.Forms.Label();
-            this.cancelaciónDeCaso1 = new proyectoPantalla.CancelaciónDeCaso();
+            this.cancelaciónDeCaso1 = new proyectoPantalla.CancelaciónDeCaso(tabControl, tabInicio);
             this.tabMostrarCaso = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.label17 = new System.Windows.Forms.Label();
-            this.muestraDeCaso1 = new proyectoPantalla.MuestraDeCaso();
+            this.muestraDeCaso1 = new proyectoPantalla.MuestraDeCaso(tabControl, tabInicio);
             this.tabMostrarCliente = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
-            this.muestraDeCliente1 = new proyectoPantalla.MuestraDeCliente();
+            this.muestraDeCliente1 = new proyectoPantalla.MuestraDeCliente(tabControl, tabInicio);
             this.label18 = new System.Windows.Forms.Label();
             this.tabMostrarTécnico = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.label19 = new System.Windows.Forms.Label();
-            this.muestraDeTécnico1 = new proyectoPantalla.MuestraDeTécnico();
+            this.muestraDeTécnico1 = new proyectoPantalla.MuestraDeTécnico(tabControl, tabInicio);
             this.tabGenInforme = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
             this.label21 = new System.Windows.Forms.Label();
-            this.generaciónDeInforme1 = new proyectoPantalla.GeneraciónDeInforme();
+            this.generaciónDeInforme1 = new proyectoPantalla.GeneraciónDeInforme(tabControl, tabInicio);
             this.tabVerDetalle = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
             this.label20 = new System.Windows.Forms.Label();
-            this.vistaDeDetalles1 = new proyectoPantalla.VistaDeDetalles();
+            this.vistaDeDetalles1 = new proyectoPantalla.VistaDeDetalles(tabControl, tabInicio);
             this.tabMostrarProducto = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
-            this.muestraDeProducto1 = new proyectoPantalla.MuestraDeProducto();
+            this.muestraDeProducto1 = new proyectoPantalla.MuestraDeProducto(tabControl, tabInicio);
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             label22 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();

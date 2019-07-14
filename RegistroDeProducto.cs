@@ -125,5 +125,10 @@ namespace proyectoPantalla
             tbPrecio.ResetText();
             nudCantidad.ResetText();
         }
+
+        private void NudCantidad_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

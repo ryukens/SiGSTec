@@ -15,7 +15,7 @@ namespace proyectoPantalla
 {
     public partial class RegistroDeCliente : UserControl
     {
-        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC2;Integrated Security=True");
+        SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
         public RegistroDeCliente()
         {
             InitializeComponent();
@@ -25,21 +25,16 @@ namespace proyectoPantalla
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            //bool flagVacios = ValidarCamposVacios();
-            //bool flagCedula = VerificaCedula(tbCedula.Text);
-            //bool flagRUC = RucPersonaNatural(tbCedula.Text);
-            //bool flagCorreo = ComprobarFormatoEmail(tbCorreo.Text);
-            //if (flagVacios)
-            //{
-            //    if (flagCorreo)
-            //    {
-            //        if (flagCedula || flagRUC)
-            //        {
-            //            MessageBox.Show("Cliente Registrado Correctamente", "Cliente Registrado");
-            //        }
-            //    }
-            //}
-            
+            bool flagVacios = ValidarCamposVacios();
+            if (!flagVacios)
+            {
+                MessageBox.Show("Cliente Registrado Correctamente", "Cliente Registrado");
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios", "Campos Vacios");
+            }
+
             conexion.Open();
 
             String consulta1 = "insert into persona (nombre, correo, identificacion) values (@nombre, @correo,@identificacion); insert into cliente ( idpersona, nombre_contacto, descripcion_contacto,sla,cuenta,tipo_pago, tipo) values ((select idpersona from persona where idpersona = (select max(idpersona) from persona)), @nombre_contacto, @descripcion_contacto, @sla, @cuenta, @tipo_pago, @tipo); ";
@@ -126,6 +121,8 @@ namespace proyectoPantalla
         private void RbPersona_CheckedChanged(object sender, EventArgs e)
         {
             tbCuenta.Text = "N/A";
+
+
         }
 
         private void RbEmpresa_CheckedChanged(object sender, EventArgs e)
@@ -216,15 +213,10 @@ namespace proyectoPantalla
                 if (text.Text.Equals(""))
                 {
                     flag = false;
-                    Console.WriteLine(text.Name + " - falg interna: " + flag);
                 }
             }
-            Console.WriteLine("flag final: " + flag);
-            Console.WriteLine("----------------------------------------");
             return flag;
         }
-
-
 
         public List<TextBox> GenerarLista()
         {
@@ -240,7 +232,6 @@ namespace proyectoPantalla
             //int tam = al.Count;
             return al;
         }
-
 
         private void TbCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -269,7 +260,6 @@ namespace proyectoPantalla
             bool flag = ComprobarFormatoEmail(tbCorreo.Text);
             if (flag)
             {
-                Console.WriteLine("CORREO BUENO");
                 tbCorreo.ForeColor = Color.Green;
 
             }
@@ -277,15 +267,10 @@ namespace proyectoPantalla
             {
                 tbCorreo.ForeColor = Color.Red;
             }
-
-
         }
 
         private void TbTelf1_TextChanged(object sender, EventArgs e)
         {
-
-
-
         }
 
         private void TbTelf1_KeyPress(object sender, KeyPressEventArgs e)
@@ -389,6 +374,40 @@ namespace proyectoPantalla
         private void BCancelar_Click(object sender, EventArgs e)
         {
             limpiarCampos();
+        }
+
+        private void TbNombre_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void TbNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (rbPersona.Checked)
+            {
+                if (Char.IsLetter(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsSeparator(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+                if (!(char.IsLetter(e.KeyChar)) && !(Char.IsSeparator(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+                {
+                    // MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    e.Handled = true;
+                    return;
+                }
+            }
+
         }
     }
 }

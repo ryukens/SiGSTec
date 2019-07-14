@@ -13,10 +13,9 @@ namespace proyectoPantalla
 {
     public partial class RegistroDeCaso : UserControl
     {
-        SqlConnection conexion = new SqlConnection("Data Source =.; Initial Catalog = sigstec; Integrated Security = True");
+        SqlConnection conexion = new SqlConnection("Data Source =.; Initial Catalog = SIGSTEC; Integrated Security = True");
 
-
-
+        
         public RegistroDeCaso()
         {
             InitializeComponent();
@@ -45,6 +44,7 @@ namespace proyectoPantalla
             conexion.Close();
         }
 
+
         private void Label10_Click(object sender, EventArgs e)
         {
 
@@ -52,8 +52,10 @@ namespace proyectoPantalla
 
         private void Button3_Click_1(object sender, EventArgs e)
         {
-            SelecciónDeCliente selecciónDeCliente = new SelecciónDeCliente(lClienteSeleccionado);
+            SelecciónDeCliente selecciónDeCliente = new SelecciónDeCliente(lClienteSeleccionado, lIdCliente);
             selecciónDeCliente.ShowDialog();
+
+
         }
 
 
@@ -91,11 +93,12 @@ namespace proyectoPantalla
             tbInformeInicial.ResetText();
             tbSector.ResetText();
             cbSLA.SelectedIndex = 0;
-            //cbVendedor.SelectedIndex = 0;
+            cbVendedor.SelectedIndex = 0;
             lClienteSeleccionado.Text = "CLIENTE SIN SELECCIONAR";
             lTecnicoSeleccionado.Text = "TÉCNICO SIN SELECCIONAR";
             lIdTecnico.Text = "id del técnico";
-
+            lIdCliente.Text = "id del Cliente";
+            lIdUsuario.Text = "id del Usuario";
 
         }
 
@@ -111,16 +114,22 @@ namespace proyectoPantalla
         {
             conexion.Open();
 
-            String consulta1 = "insert into caso(IDUSUARIO, IDTECNICO, IDCLIENTE, NUMERO, FECHA, SLA, INFORME_INICIAL, SECTOR, ESTADO, PARTE_PATH, INFORME_FINAL) values((select IDUSUARIO from USUARIO where username = @USERNAME), @IDTECNICO, @IDCLIENTE, @NUMERO, @FECHA, @SLA, @INFORME_INICIAL, @SECTOR, 'ABIERTO', 'No asignado', 'No Asigando'); ";
+
+
+            //String consulta1 = "insert into caso(IDUSUARIO, IDTECNICO, IDCLIENTE, NUMERO, FECHA, SLA, INFORME_INICIAL, SECTOR, ESTADO, PARTE_PATH, INFORME_FINAL) values((select IDPERSONA from PERSONA where NOMBRE = @USUARIO), @IDTECNICO, @IDCLIENTE, @NUMERO, @FECHA, @SLA, @INFORME_INICIAL, @SECTOR, 'ABIERTO', 'No asignado', 'No Asigando'); ";
+            
+            String consulta1 = "insert into caso(IDUSUARIO, IDTECNICO, IDCLIENTE, NUMERO, FECHA, SLA, INFORME_INICIAL, SECTOR, ESTADO, PARTE_PATH, INFORME_FINAL) values((select u.idusuario from usuario as u join persona as p on u.idpersona = p.idpersona where p.nombre like @IDUSUARIO), @IDTECNICO, @IDCLIENTE, @NUMERO, @FECHA, @SLA, @INFORME_INICIAL, @SECTOR, 'ABIERTO', 'No asignado', 'No Asigando');";
+
 
             int idt = int.Parse(lIdTecnico.Text);
-
-            MessageBox.Show(idt.ToString());
+            int idc = int.Parse(lIdCliente.Text);
+            String nombreu = lIdUsuario.Text;
 
             SqlCommand comando1 = new SqlCommand(consulta1, conexion);
             comando1.Parameters.AddWithValue("@IDTECNICO", idt);
-            comando1.Parameters.AddWithValue("@USERNAME", idt);
-            comando1.Parameters.AddWithValue("@IDCLIENTE", cbVendedor.Text);
+            // comando1.Parameters.AddWithValue("@IDUSUARIO", cbVendedor.Text);
+            comando1.Parameters.AddWithValue("@IDUSUARIO", nombreu);
+            comando1.Parameters.AddWithValue("@IDCLIENTE", idc);
             comando1.Parameters.AddWithValue("@NUMERO", lCaso.Text);
             comando1.Parameters.AddWithValue("@FECHA", lFechaActual.Text);
             comando1.Parameters.AddWithValue("@SLA", cbSLA.Text);
@@ -130,7 +139,7 @@ namespace proyectoPantalla
             comando1.ExecuteNonQuery();
 
 
-            //MessageBox.Show("Caso Registrado Correctamente", "Caso Registrado");
+            MessageBox.Show("Caso Registrado Correctamente", "Caso Registrado");
 
             conexion.Close();
 
@@ -145,6 +154,29 @@ namespace proyectoPantalla
 
         private void Label1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void CbVendedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void CbVendedor_TextChanged(object sender, EventArgs e)
+        {
+            lIdUsuario.Text = cbVendedor.SelectedItem.ToString();
 
         }
     }

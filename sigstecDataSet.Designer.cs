@@ -1441,6 +1441,8 @@ namespace proyectoPantalla {
             
             private global::System.Data.DataColumn columnTIPO_PAGO;
             
+            private global::System.Data.DataColumn columnTIPO;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public CLIENTEDataTable() {
@@ -1532,6 +1534,14 @@ namespace proyectoPantalla {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TIPOColumn {
+                get {
+                    return this.columnTIPO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1567,7 +1577,7 @@ namespace proyectoPantalla {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public CLIENTERow AddCLIENTERow(PERSONARow parentPERSONARowByFK_CLIENTE_PERSONA_C_PERSONA, string NOMBRE_CONTACTO, string DESCRIPCION_CONTACTO, string SLA, string CUENTA, string TIPO_PAGO) {
+            public CLIENTERow AddCLIENTERow(PERSONARow parentPERSONARowByFK_CLIENTE_PERSONA_C_PERSONA, string NOMBRE_CONTACTO, string DESCRIPCION_CONTACTO, string SLA, string CUENTA, string TIPO_PAGO, string TIPO) {
                 CLIENTERow rowCLIENTERow = ((CLIENTERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1576,7 +1586,8 @@ namespace proyectoPantalla {
                         DESCRIPCION_CONTACTO,
                         SLA,
                         CUENTA,
-                        TIPO_PAGO};
+                        TIPO_PAGO,
+                        TIPO};
                 if ((parentPERSONARowByFK_CLIENTE_PERSONA_C_PERSONA != null)) {
                     columnValuesArray[1] = parentPERSONARowByFK_CLIENTE_PERSONA_C_PERSONA[0];
                 }
@@ -1616,6 +1627,7 @@ namespace proyectoPantalla {
                 this.columnSLA = base.Columns["SLA"];
                 this.columnCUENTA = base.Columns["CUENTA"];
                 this.columnTIPO_PAGO = base.Columns["TIPO_PAGO"];
+                this.columnTIPO = base.Columns["TIPO"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1635,6 +1647,8 @@ namespace proyectoPantalla {
                 base.Columns.Add(this.columnCUENTA);
                 this.columnTIPO_PAGO = new global::System.Data.DataColumn("TIPO_PAGO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTIPO_PAGO);
+                this.columnTIPO = new global::System.Data.DataColumn("TIPO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTIPO);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIDCLIENTE}, true));
                 this.columnIDCLIENTE.AutoIncrement = true;
@@ -1654,6 +1668,8 @@ namespace proyectoPantalla {
                 this.columnCUENTA.MaxLength = 64;
                 this.columnTIPO_PAGO.AllowDBNull = false;
                 this.columnTIPO_PAGO.MaxLength = 20;
+                this.columnTIPO.AllowDBNull = false;
+                this.columnTIPO.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4354,6 +4370,17 @@ namespace proyectoPantalla {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TIPO {
+                get {
+                    return ((string)(this[this.tableCLIENTE.TIPOColumn]));
+                }
+                set {
+                    this[this.tableCLIENTE.TIPOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PERSONARow PERSONARow {
                 get {
                     return ((PERSONARow)(this.GetParentRow(this.Table.ParentRelations["FK_CLIENTE_PERSONA_C_PERSONA"])));
@@ -6327,10 +6354,11 @@ SELECT IDCASO_PRODUCTO, IDCASO, IDPRODUCTO, CANTIDAD FROM CASO_PRODUCTO WHERE (I
             tableMapping.ColumnMappings.Add("SLA", "SLA");
             tableMapping.ColumnMappings.Add("CUENTA", "CUENTA");
             tableMapping.ColumnMappings.Add("TIPO_PAGO", "TIPO_PAGO");
+            tableMapping.ColumnMappings.Add("TIPO", "TIPO");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[CLIENTE] WHERE (([IDCLIENTE] = @Original_IDCLIENTE) AND ([IDPERSONA] = @Original_IDPERSONA) AND ([NOMBRE_CONTACTO] = @Original_NOMBRE_CONTACTO) AND ([DESCRIPCION_CONTACTO] = @Original_DESCRIPCION_CONTACTO) AND ([SLA] = @Original_SLA) AND ([CUENTA] = @Original_CUENTA) AND ([TIPO_PAGO] = @Original_TIPO_PAGO))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[CLIENTE] WHERE (([IDCLIENTE] = @Original_IDCLIENTE) AND ([IDPERSONA] = @Original_IDPERSONA) AND ([NOMBRE_CONTACTO] = @Original_NOMBRE_CONTACTO) AND ([DESCRIPCION_CONTACTO] = @Original_DESCRIPCION_CONTACTO) AND ([SLA] = @Original_SLA) AND ([CUENTA] = @Original_CUENTA) AND ([TIPO_PAGO] = @Original_TIPO_PAGO) AND ([TIPO] = @Original_TIPO))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDCLIENTE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDCLIENTE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDPERSONA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDPERSONA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -6339,10 +6367,11 @@ SELECT IDCASO_PRODUCTO, IDCASO, IDPRODUCTO, CANTIDAD FROM CASO_PRODUCTO WHERE (I
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SLA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SLA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CUENTA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CUENTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TIPO_PAGO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIPO_PAGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TIPO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIPO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[CLIENTE] ([IDPERSONA], [NOMBRE_CONTACTO], [DESCRIPCION_CONTACTO], [SLA], [CUENTA], [TIPO_PAGO]) VALUES (@IDPERSONA, @NOMBRE_CONTACTO, @DESCRIPCION_CONTACTO, @SLA, @CUENTA, @TIPO_PAGO);
-SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA, TIPO_PAGO FROM CLIENTE WHERE (IDCLIENTE = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[CLIENTE] ([IDPERSONA], [NOMBRE_CONTACTO], [DESCRIPCION_CONTACTO], [SLA], [CUENTA], [TIPO_PAGO], [TIPO]) VALUES (@IDPERSONA, @NOMBRE_CONTACTO, @DESCRIPCION_CONTACTO, @SLA, @CUENTA, @TIPO_PAGO, @TIPO);
+SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA, TIPO_PAGO, TIPO FROM CLIENTE WHERE (IDCLIENTE = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDPERSONA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDPERSONA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOMBRE_CONTACTO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMBRE_CONTACTO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6350,10 +6379,11 @@ SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA,
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SLA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SLA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CUENTA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CUENTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIPO_PAGO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIPO_PAGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIPO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIPO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[CLIENTE] SET [IDPERSONA] = @IDPERSONA, [NOMBRE_CONTACTO] = @NOMBRE_CONTACTO, [DESCRIPCION_CONTACTO] = @DESCRIPCION_CONTACTO, [SLA] = @SLA, [CUENTA] = @CUENTA, [TIPO_PAGO] = @TIPO_PAGO WHERE (([IDCLIENTE] = @Original_IDCLIENTE) AND ([IDPERSONA] = @Original_IDPERSONA) AND ([NOMBRE_CONTACTO] = @Original_NOMBRE_CONTACTO) AND ([DESCRIPCION_CONTACTO] = @Original_DESCRIPCION_CONTACTO) AND ([SLA] = @Original_SLA) AND ([CUENTA] = @Original_CUENTA) AND ([TIPO_PAGO] = @Original_TIPO_PAGO));
-SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA, TIPO_PAGO FROM CLIENTE WHERE (IDCLIENTE = @IDCLIENTE)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[CLIENTE] SET [IDPERSONA] = @IDPERSONA, [NOMBRE_CONTACTO] = @NOMBRE_CONTACTO, [DESCRIPCION_CONTACTO] = @DESCRIPCION_CONTACTO, [SLA] = @SLA, [CUENTA] = @CUENTA, [TIPO_PAGO] = @TIPO_PAGO, [TIPO] = @TIPO WHERE (([IDCLIENTE] = @Original_IDCLIENTE) AND ([IDPERSONA] = @Original_IDPERSONA) AND ([NOMBRE_CONTACTO] = @Original_NOMBRE_CONTACTO) AND ([DESCRIPCION_CONTACTO] = @Original_DESCRIPCION_CONTACTO) AND ([SLA] = @Original_SLA) AND ([CUENTA] = @Original_CUENTA) AND ([TIPO_PAGO] = @Original_TIPO_PAGO) AND ([TIPO] = @Original_TIPO));
+SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA, TIPO_PAGO, TIPO FROM CLIENTE WHERE (IDCLIENTE = @IDCLIENTE)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDPERSONA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDPERSONA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NOMBRE_CONTACTO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMBRE_CONTACTO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6361,6 +6391,7 @@ SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA,
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SLA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SLA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CUENTA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CUENTA", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIPO_PAGO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIPO_PAGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TIPO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIPO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDCLIENTE", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDCLIENTE", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IDPERSONA", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "IDPERSONA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NOMBRE_CONTACTO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NOMBRE_CONTACTO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -6368,6 +6399,7 @@ SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA,
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SLA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SLA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CUENTA", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CUENTA", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TIPO_PAGO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIPO_PAGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TIPO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TIPO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IDCLIENTE", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 18, 0, "IDCLIENTE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -6385,7 +6417,7 @@ SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA,
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA, " +
-                "TIPO_PAGO FROM dbo.CLIENTE";
+                "TIPO_PAGO, TIPO FROM dbo.CLIENTE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6446,7 +6478,7 @@ SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(decimal Original_IDCLIENTE, decimal Original_IDPERSONA, string Original_NOMBRE_CONTACTO, string Original_DESCRIPCION_CONTACTO, string Original_SLA, string Original_CUENTA, string Original_TIPO_PAGO) {
+        public virtual int Delete(decimal Original_IDCLIENTE, decimal Original_IDPERSONA, string Original_NOMBRE_CONTACTO, string Original_DESCRIPCION_CONTACTO, string Original_SLA, string Original_CUENTA, string Original_TIPO_PAGO, string Original_TIPO) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((decimal)(Original_IDCLIENTE));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((decimal)(Original_IDPERSONA));
             if ((Original_NOMBRE_CONTACTO == null)) {
@@ -6479,6 +6511,12 @@ SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA,
             else {
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_TIPO_PAGO));
             }
+            if ((Original_TIPO == null)) {
+                throw new global::System.ArgumentNullException("Original_TIPO");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_TIPO));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6499,7 +6537,7 @@ SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(decimal IDPERSONA, string NOMBRE_CONTACTO, string DESCRIPCION_CONTACTO, string SLA, string CUENTA, string TIPO_PAGO) {
+        public virtual int Insert(decimal IDPERSONA, string NOMBRE_CONTACTO, string DESCRIPCION_CONTACTO, string SLA, string CUENTA, string TIPO_PAGO, string TIPO) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(IDPERSONA));
             if ((NOMBRE_CONTACTO == null)) {
                 throw new global::System.ArgumentNullException("NOMBRE_CONTACTO");
@@ -6531,6 +6569,12 @@ SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA,
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((string)(TIPO_PAGO));
             }
+            if ((TIPO == null)) {
+                throw new global::System.ArgumentNullException("TIPO");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(TIPO));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6551,7 +6595,23 @@ SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(decimal IDPERSONA, string NOMBRE_CONTACTO, string DESCRIPCION_CONTACTO, string SLA, string CUENTA, string TIPO_PAGO, decimal Original_IDCLIENTE, decimal Original_IDPERSONA, string Original_NOMBRE_CONTACTO, string Original_DESCRIPCION_CONTACTO, string Original_SLA, string Original_CUENTA, string Original_TIPO_PAGO, decimal IDCLIENTE) {
+        public virtual int Update(
+                    decimal IDPERSONA, 
+                    string NOMBRE_CONTACTO, 
+                    string DESCRIPCION_CONTACTO, 
+                    string SLA, 
+                    string CUENTA, 
+                    string TIPO_PAGO, 
+                    string TIPO, 
+                    decimal Original_IDCLIENTE, 
+                    decimal Original_IDPERSONA, 
+                    string Original_NOMBRE_CONTACTO, 
+                    string Original_DESCRIPCION_CONTACTO, 
+                    string Original_SLA, 
+                    string Original_CUENTA, 
+                    string Original_TIPO_PAGO, 
+                    string Original_TIPO, 
+                    decimal IDCLIENTE) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(IDPERSONA));
             if ((NOMBRE_CONTACTO == null)) {
                 throw new global::System.ArgumentNullException("NOMBRE_CONTACTO");
@@ -6583,39 +6643,51 @@ SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA,
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(TIPO_PAGO));
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Original_IDCLIENTE));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(Original_IDPERSONA));
+            if ((TIPO == null)) {
+                throw new global::System.ArgumentNullException("TIPO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(TIPO));
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(Original_IDCLIENTE));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(Original_IDPERSONA));
             if ((Original_NOMBRE_CONTACTO == null)) {
                 throw new global::System.ArgumentNullException("Original_NOMBRE_CONTACTO");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_NOMBRE_CONTACTO));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_NOMBRE_CONTACTO));
             }
             if ((Original_DESCRIPCION_CONTACTO == null)) {
                 throw new global::System.ArgumentNullException("Original_DESCRIPCION_CONTACTO");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_DESCRIPCION_CONTACTO));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_DESCRIPCION_CONTACTO));
             }
             if ((Original_SLA == null)) {
                 throw new global::System.ArgumentNullException("Original_SLA");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_SLA));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_SLA));
             }
             if ((Original_CUENTA == null)) {
                 throw new global::System.ArgumentNullException("Original_CUENTA");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_CUENTA));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_CUENTA));
             }
             if ((Original_TIPO_PAGO == null)) {
                 throw new global::System.ArgumentNullException("Original_TIPO_PAGO");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_TIPO_PAGO));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_TIPO_PAGO));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(IDCLIENTE));
+            if ((Original_TIPO == null)) {
+                throw new global::System.ArgumentNullException("Original_TIPO");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_TIPO));
+            }
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(IDCLIENTE));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6636,8 +6708,8 @@ SELECT IDCLIENTE, IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(decimal IDPERSONA, string NOMBRE_CONTACTO, string DESCRIPCION_CONTACTO, string SLA, string CUENTA, string TIPO_PAGO, decimal Original_IDCLIENTE, decimal Original_IDPERSONA, string Original_NOMBRE_CONTACTO, string Original_DESCRIPCION_CONTACTO, string Original_SLA, string Original_CUENTA, string Original_TIPO_PAGO) {
-            return this.Update(IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA, TIPO_PAGO, Original_IDCLIENTE, Original_IDPERSONA, Original_NOMBRE_CONTACTO, Original_DESCRIPCION_CONTACTO, Original_SLA, Original_CUENTA, Original_TIPO_PAGO, Original_IDCLIENTE);
+        public virtual int Update(decimal IDPERSONA, string NOMBRE_CONTACTO, string DESCRIPCION_CONTACTO, string SLA, string CUENTA, string TIPO_PAGO, string TIPO, decimal Original_IDCLIENTE, decimal Original_IDPERSONA, string Original_NOMBRE_CONTACTO, string Original_DESCRIPCION_CONTACTO, string Original_SLA, string Original_CUENTA, string Original_TIPO_PAGO, string Original_TIPO) {
+            return this.Update(IDPERSONA, NOMBRE_CONTACTO, DESCRIPCION_CONTACTO, SLA, CUENTA, TIPO_PAGO, TIPO, Original_IDCLIENTE, Original_IDPERSONA, Original_NOMBRE_CONTACTO, Original_DESCRIPCION_CONTACTO, Original_SLA, Original_CUENTA, Original_TIPO_PAGO, Original_TIPO, Original_IDCLIENTE);
         }
     }
     

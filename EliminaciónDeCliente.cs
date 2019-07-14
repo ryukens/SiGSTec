@@ -14,17 +14,21 @@ namespace proyectoPantalla
     public partial class EliminaciónDeCliente : UserControl
     {
         SqlConnection conexion = new SqlConnection("Data Source=.;Initial Catalog=SIGSTEC;Integrated Security=True");
-        public EliminaciónDeCliente()
+        TabControl tabControl;
+        TabPage tabInicio;
+        public EliminaciónDeCliente(TabControl tabControl, TabPage tabInicio)
         {
             InitializeComponent();
             cbBuscar.SelectedIndex = 0;
             mostrarDatosCompleto();
+            this.tabControl = tabControl;
+            this.tabInicio = tabInicio;
 
         }
 
         public void mostrarDatosCompleto()
         {
-            
+
             String consulta = "select c.tipo, p.nombre, c.cuenta,  p.identificacion, c.sla  from persona as p join cliente as c on p.idpersona = c.IDPERSONA   order by c.tipo;";
             SqlDataAdapter sda = new SqlDataAdapter(consulta, conexion);
             DataTable dt = new DataTable();
@@ -71,7 +75,7 @@ namespace proyectoPantalla
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Button2_Click_1(object sender, EventArgs e)
@@ -83,7 +87,7 @@ namespace proyectoPantalla
                 String consulta1 = "delete from persona where identificacion = @identificacion;";
                 SqlCommand comando1 = new SqlCommand(consulta1, conexion);
                 comando1.Parameters.AddWithValue("@identificacion", dgvEliminar.CurrentRow.Cells[3].Value.ToString());
-                
+
                 comando1.ExecuteNonQuery();
 
 
@@ -168,6 +172,16 @@ namespace proyectoPantalla
                 dgvEliminar.Columns[3].HeaderText = "Identificación";
                 dgvEliminar.Columns[4].HeaderText = "SLA";
             }
+        }
+
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BCancelar_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectTab(tabInicio);
         }
     }
 }
