@@ -20,10 +20,28 @@ namespace proyectoPantalla
         {
             InitializeComponent();
             timer1.Enabled = true;
+            ingresarDatosUsuarios();
             cbSLA.SelectedIndex = 0;
             cbVendedor.SelectedIndex = 0;
 
+        }
 
+
+        public void ingresarDatosUsuarios()
+        {
+            cbVendedor.Items.Clear();
+            conexion.Open();
+            String consulta = "select p.nombre from persona as p join usuario as u on p.idpersona = u.idpersona where u.TIPO = 'Empleado De Ventas' order by p.nombre;";
+            SqlCommand comando = new SqlCommand(consulta, conexion);
+            SqlDataReader reader =  comando.ExecuteReader();
+            while (reader.Read())
+            {
+                cbVendedor.Items.Add(reader[0].ToString());
+            }
+            
+
+
+            conexion.Close();
         }
 
 
@@ -49,7 +67,7 @@ namespace proyectoPantalla
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
 
@@ -91,10 +109,11 @@ namespace proyectoPantalla
 
 
         }
-        
+
         private void BAceptar_Click(object sender, EventArgs e)
         {
             conexion.Open();
+
 
 
             //String consulta1 = "insert into caso(IDUSUARIO, IDTECNICO, IDCLIENTE, NUMERO, FECHA, SLA, INFORME_INICIAL, SECTOR, ESTADO, PARTE_PATH, INFORME_FINAL) values((select IDPERSONA from PERSONA where NOMBRE = @USUARIO), @IDTECNICO, @IDCLIENTE, @NUMERO, @FECHA, @SLA, @INFORME_INICIAL, @SECTOR, 'ABIERTO', 'No asignado', 'No Asigando'); ";
