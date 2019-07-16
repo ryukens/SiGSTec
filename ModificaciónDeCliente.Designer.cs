@@ -35,8 +35,8 @@
             this.lBuscar = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.bModificar = new System.Windows.Forms.Button();
-            this.dgvModificar = new System.Windows.Forms.DataGridView();
             this.bCancelar = new System.Windows.Forms.Button();
+            this.dgvModificar = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -148,6 +148,17 @@
             this.bModificar.UseVisualStyleBackColor = true;
             this.bModificar.Click += new System.EventHandler(this.Button2_Click_1);
             // 
+            // bCancelar
+            // 
+            this.bCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bCancelar.Location = new System.Drawing.Point(308, 3);
+            this.bCancelar.Name = "bCancelar";
+            this.bCancelar.Size = new System.Drawing.Size(299, 42);
+            this.bCancelar.TabIndex = 3;
+            this.bCancelar.Text = "Cancelar";
+            this.bCancelar.UseVisualStyleBackColor = true;
+            this.bCancelar.Click += new System.EventHandler(this.BCancelar_Click);
+            // 
             // dgvModificar
             // 
             this.dgvModificar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -161,17 +172,6 @@
             this.dgvModificar.Size = new System.Drawing.Size(610, 434);
             this.dgvModificar.TabIndex = 0;
             this.dgvModificar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvModificar_CellClick);
-            // 
-            // bCancelar
-            // 
-            this.bCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bCancelar.Location = new System.Drawing.Point(231, 3);
-            this.bCancelar.Name = "bCancelar";
-            this.bCancelar.Size = new System.Drawing.Size(223, 34);
-            this.bCancelar.TabIndex = 3;
-            this.bCancelar.Text = "Cancelar";
-            this.bCancelar.UseVisualStyleBackColor = true;
-            this.bCancelar.Click += new System.EventHandler(this.BCancelar_Click);
             // 
             // ModificaciónDeCliente
             // 
