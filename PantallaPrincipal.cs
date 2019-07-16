@@ -56,6 +56,8 @@ namespace proyectoPantalla
         private void NuevoToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             tabControl.SelectTab(tabRegCaso);
+            registroDeCaso1.ingresarDatosUsuarios();
+            
         }
 
         

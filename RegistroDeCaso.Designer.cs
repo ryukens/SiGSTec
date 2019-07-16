@@ -64,10 +64,14 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.lVendedor = new System.Windows.Forms.Label();
             this.cbVendedor = new System.Windows.Forms.ComboBox();
+            this.vendedoresBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.sigstecDataSet1 = new proyectoPantalla.sigstecDataSet1();
             this.lIdTecnico = new System.Windows.Forms.Label();
             this.lIdCliente = new System.Windows.Forms.Label();
             this.lIdUsuario = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.vendedoresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vendedoresTableAdapter = new proyectoPantalla.sigstecDataSet1TableAdapters.VendedoresTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -83,6 +87,9 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vendedoresBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sigstecDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendedoresBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -113,6 +120,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lIdUsuario, 2, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 9;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
@@ -136,18 +144,20 @@
             this.tableLayoutPanel2.Controls.Add(this.bCancelar, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.bAceptar, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(104, 411);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(139, 508);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(503, 49);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(670, 58);
             this.tableLayoutPanel2.TabIndex = 32;
             // 
             // bCancelar
             // 
             this.bCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bCancelar.Location = new System.Drawing.Point(254, 3);
+            this.bCancelar.Location = new System.Drawing.Point(339, 4);
+            this.bCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.bCancelar.Name = "bCancelar";
             this.bCancelar.Size = new System.Drawing.Size(246, 43);
             this.bCancelar.TabIndex = 1;
@@ -158,7 +168,8 @@
             // bAceptar
             // 
             this.bAceptar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bAceptar.Location = new System.Drawing.Point(3, 3);
+            this.bAceptar.Location = new System.Drawing.Point(4, 4);
+            this.bAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.bAceptar.Name = "bAceptar";
             this.bAceptar.Size = new System.Drawing.Size(245, 43);
             this.bAceptar.TabIndex = 0;
@@ -170,7 +181,8 @@
             // 
             this.panel13.Controls.Add(this.tbSector);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(104, 360);
+            this.panel13.Location = new System.Drawing.Point(139, 445);
+            this.panel13.Margin = new System.Windows.Forms.Padding(4);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(503, 45);
             this.panel13.TabIndex = 29;
@@ -179,6 +191,7 @@
             // 
             this.tbSector.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSector.Location = new System.Drawing.Point(0, 0);
+            this.tbSector.Margin = new System.Windows.Forms.Padding(4);
             this.tbSector.MaxLength = 64;
             this.tbSector.Name = "tbSector";
             this.tbSector.Size = new System.Drawing.Size(503, 20);
@@ -187,7 +200,8 @@
             // tbInformeInicial
             // 
             this.tbInformeInicial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbInformeInicial.Location = new System.Drawing.Point(104, 258);
+            this.tbInformeInicial.Location = new System.Drawing.Point(139, 319);
+            this.tbInformeInicial.Margin = new System.Windows.Forms.Padding(4);
             this.tbInformeInicial.MaxLength = 1024;
             this.tbInformeInicial.Multiline = true;
             this.tbInformeInicial.Name = "tbInformeInicial";
@@ -198,7 +212,8 @@
             // 
             this.panel12.Controls.Add(this.cbSLA);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(104, 207);
+            this.panel12.Location = new System.Drawing.Point(139, 256);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(503, 45);
             this.panel12.TabIndex = 27;
@@ -212,6 +227,7 @@
             "1/2 hora",
             "1 hora"});
             this.cbSLA.Location = new System.Drawing.Point(0, 0);
+            this.cbSLA.Margin = new System.Windows.Forms.Padding(4);
             this.cbSLA.Name = "cbSLA";
             this.cbSLA.Size = new System.Drawing.Size(503, 21);
             this.cbSLA.TabIndex = 0;
@@ -220,7 +236,8 @@
             // 
             this.panel11.Controls.Add(this.lFechaActual);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(104, 105);
+            this.panel11.Location = new System.Drawing.Point(139, 130);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(503, 45);
             this.panel11.TabIndex = 26;
@@ -239,7 +256,8 @@
             // 
             this.panel10.Controls.Add(this.lCaso);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(104, 54);
+            this.panel10.Location = new System.Drawing.Point(139, 67);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(503, 45);
             this.panel10.TabIndex = 25;
@@ -259,7 +277,8 @@
             // 
             this.panel6.Controls.Add(this.lSector);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 360);
+            this.panel6.Location = new System.Drawing.Point(4, 445);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(95, 45);
             this.panel6.TabIndex = 20;
@@ -278,7 +297,8 @@
             // 
             this.panel5.Controls.Add(this.lAsignacion);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 309);
+            this.panel5.Location = new System.Drawing.Point(4, 382);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(95, 45);
             this.panel5.TabIndex = 19;
@@ -297,7 +317,8 @@
             // 
             this.panel4.Controls.Add(this.lInformeInicial);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 258);
+            this.panel4.Location = new System.Drawing.Point(4, 319);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(95, 45);
             this.panel4.TabIndex = 18;
@@ -316,7 +337,8 @@
             // 
             this.panel2.Controls.Add(this.lSLA);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 207);
+            this.panel2.Location = new System.Drawing.Point(4, 256);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(95, 45);
             this.panel2.TabIndex = 17;
@@ -335,7 +357,8 @@
             // 
             this.panel3.Controls.Add(this.lFecha);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 105);
+            this.panel3.Location = new System.Drawing.Point(4, 130);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(95, 45);
             this.panel3.TabIndex = 16;
@@ -354,7 +377,8 @@
             // 
             this.panel1.Controls.Add(this.lNumCaso);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 54);
+            this.panel1.Location = new System.Drawing.Point(4, 67);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(95, 45);
             this.panel1.TabIndex = 0;
@@ -377,7 +401,8 @@
             this.tableLayoutPanel3.Controls.Add(this.lTecnicoSeleccionado, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.bSeleccionarTecnico, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(104, 309);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(139, 382);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -398,7 +423,8 @@
             // bSeleccionarTecnico
             // 
             this.bSeleccionarTecnico.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bSeleccionarTecnico.Location = new System.Drawing.Point(3, 3);
+            this.bSeleccionarTecnico.Location = new System.Drawing.Point(4, 4);
+            this.bSeleccionarTecnico.Margin = new System.Windows.Forms.Padding(4);
             this.bSeleccionarTecnico.Name = "bSeleccionarTecnico";
             this.bSeleccionarTecnico.Size = new System.Drawing.Size(119, 39);
             this.bSeleccionarTecnico.TabIndex = 2;
@@ -414,7 +440,8 @@
             this.tableLayoutPanel4.Controls.Add(this.lClienteSeleccionado, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.bSeleccionarCliente, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(104, 3);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(139, 4);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -437,7 +464,8 @@
             // bSeleccionarCliente
             // 
             this.bSeleccionarCliente.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bSeleccionarCliente.Location = new System.Drawing.Point(3, 3);
+            this.bSeleccionarCliente.Location = new System.Drawing.Point(4, 4);
+            this.bSeleccionarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.bSeleccionarCliente.Name = "bSeleccionarCliente";
             this.bSeleccionarCliente.Size = new System.Drawing.Size(119, 39);
             this.bSeleccionarCliente.TabIndex = 2;
@@ -460,7 +488,8 @@
             // 
             this.panel8.Controls.Add(this.lVendedor);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(3, 156);
+            this.panel8.Location = new System.Drawing.Point(4, 193);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(95, 45);
             this.panel8.TabIndex = 36;
@@ -480,22 +509,30 @@
             this.cbVendedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbVendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVendedor.FormattingEnabled = true;
-            this.cbVendedor.Items.AddRange(new object[] {
-            "pepe"});
-            this.cbVendedor.Location = new System.Drawing.Point(104, 156);
+            this.cbVendedor.Location = new System.Drawing.Point(139, 193);
+            this.cbVendedor.Margin = new System.Windows.Forms.Padding(4);
             this.cbVendedor.Name = "cbVendedor";
             this.cbVendedor.Size = new System.Drawing.Size(503, 21);
             this.cbVendedor.TabIndex = 37;
             this.cbVendedor.SelectedIndexChanged += new System.EventHandler(this.CbVendedor_SelectedIndexChanged);
             this.cbVendedor.TextChanged += new System.EventHandler(this.CbVendedor_TextChanged);
             // 
+            // vendedoresBindingSource1
+            // 
+            this.vendedoresBindingSource1.DataMember = "Vendedores";
+            this.vendedoresBindingSource1.DataSource = this.sigstecDataSet1;
+            // 
+            // sigstecDataSet1
+            // 
+            this.sigstecDataSet1.DataSetName = "sigstecDataSet1";
+            this.sigstecDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // lIdTecnico
             // 
             this.lIdTecnico.AutoSize = true;
-            this.lIdTecnico.Location = new System.Drawing.Point(612, 0);
-            this.lIdTecnico.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lIdTecnico.Location = new System.Drawing.Point(816, 0);
             this.lIdTecnico.Name = "lIdTecnico";
-            this.lIdTecnico.Size = new System.Drawing.Size(57, 13);
+            this.lIdTecnico.Size = new System.Drawing.Size(72, 17);
             this.lIdTecnico.TabIndex = 38;
             this.lIdTecnico.Text = "lIdTecnico";
             this.lIdTecnico.Visible = false;
@@ -526,12 +563,22 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick_1);
             // 
+            // vendedoresBindingSource
+            // 
+            this.vendedoresBindingSource.DataMember = "Vendedores";
+            this.vendedoresBindingSource.DataSource = this.sigstecDataSet1;
+            // 
+            // vendedoresTableAdapter
+            // 
+            this.vendedoresTableAdapter.ClearBeforeFill = true;
+            // 
             // RegistroDeCaso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegistroDeCaso";
             this.Size = new System.Drawing.Size(679, 463);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -562,6 +609,9 @@
             this.tableLayoutPanel4.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vendedoresBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sigstecDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vendedoresBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -605,7 +655,9 @@
         private System.Windows.Forms.ComboBox cbVendedor;
         private System.Windows.Forms.TextBox tbSector;
         private System.Windows.Forms.Label lIdTecnico;
-        private System.Windows.Forms.Label lIdCliente;
-        private System.Windows.Forms.Label lIdUsuario;
+        private System.Windows.Forms.BindingSource vendedoresBindingSource;
+        private sigstecDataSet1 sigstecDataSet1;
+        private sigstecDataSet1TableAdapters.VendedoresTableAdapter vendedoresTableAdapter;
+        private System.Windows.Forms.BindingSource vendedoresBindingSource1;
     }
 }
